@@ -1,0 +1,7 @@
+.services {
+    /* background-color: tomato; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    margin: 20px;
+}

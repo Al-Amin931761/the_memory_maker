@@ -1,0 +1,20 @@
+.service {
+    background-color: tomato;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid seagreen;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.service:hover {
+    background-color: darkcyan;
+}
+
+.checkout {
+    background-color: goldenrod;
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}

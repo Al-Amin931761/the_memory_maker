@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Fashion / Personal / Outdoor",
+        "price": 200,
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur neque nam qui voluptate! Totam praesentium, tempora et a quam labore illum cumque necessitatibus, laboriosam vitae odit provident nam sapiente blanditiis.",
+        "picture": "https://i.ibb.co/hgbJZcC/Fashion-photoshoot-pana.png"
+    },
+    {
+        "id": 2,
+        "name": "Birthday / Kids / New Born & Babies",
+        "price": 300,
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur neque nam qui voluptate! Totam praesentium, tempora et a quam labore illum cumque necessitatibus, laboriosam vitae odit provident nam sapiente blanditiis.",
+        "picture": "https://i.ibb.co/TgthGqp/Sleeping-baby-cuate.png"
+    },
+    {
+        "id": 3,
+        "name": "Commercial / Product / E-Commerce",
+        "price": 400,
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur neque nam qui voluptate! Totam praesentium, tempora et a quam labore illum cumque necessitatibus, laboriosam vitae odit provident nam sapiente blanditiis.",
+        "picture": "https://i.ibb.co/Hrg73g9/Peach-pana.png"
+    }
+]

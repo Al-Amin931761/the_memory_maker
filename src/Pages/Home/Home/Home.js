@@ -1,16 +1,11 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 import Services from '../Services/Services';
-
-const services = [
-    {
-        id: 1, name: 'abc', price: 1000, description: 'asdfghjkl'
-    }
-];
 
 const Home = () => {
     return (
         <div>
-            <h3>This is home</h3>
+            <Banner></Banner>
             <Services></Services>
         </div>
     );

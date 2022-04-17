@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { FcGoogle } from 'react-icons/fc';
 import { IoMdLogIn } from 'react-icons/io';
@@ -27,6 +27,13 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
     }
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
     // Sign In With Google 
     const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
 
@@ -38,18 +45,22 @@ const Login = () => {
         );
     }
 
+    if (user2) {
+        navigate(from, { replace: true });
+    }
+
     return (
         <div className='w-50 mx-auto mt-5 mb-5'>
             <h2 className='text-center'>Please Login</h2>
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" />
+                    <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password " />
+                    <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password " required />
                 </Form.Group>
 
 

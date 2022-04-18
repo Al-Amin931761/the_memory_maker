@@ -7,9 +7,21 @@ import { FcGoogle } from 'react-icons/fc';
 import { IoMdLogIn } from 'react-icons/io';
 import { ImCross } from 'react-icons/im';
 import './Login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Loading from '../../Shared/Loading/Loading';
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
+    const handleLogin = event => {
+        event.preventDefault();
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        signInWithEmailAndPassword(email, password);
+    }
 
     // signIn With Email And Password
     const [
@@ -19,19 +31,10 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const emailRef = useRef('');
-    const passwordRef = useRef('');
-
-    const handleLogin = event => {
-        event.preventDefault();
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-        signInWithEmailAndPassword(email, password);
-    }
-
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+
     if (user) {
         navigate(from, { replace: true });
     }
@@ -42,27 +45,39 @@ const Login = () => {
     }
 
     // Sign In With Google 
-    const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     let errorElement = '';
-    if (error2) {
+    if (googleError) {
         errorElement = <div>
             <p className='text-danger'> < ImCross /> {'Error: Popup closed by user'}</p>
         </div>
 
     }
-    if (user2) {
+    if (googleUser) {
         navigate(from, { replace: true });
     }
 
+    if (loading || googleLoading) {
+        return <Loading></Loading>
+    }
+
+
 
     // reset password
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-
     const resetPassword = async () => {
         const email = emailRef.current.value;
-        await sendPasswordResetEmail(email);
-        alert('Sent email');
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else {
+            toast('Please enter your email address')
+        }
+    }
+
+    if (sending) {
+        return <Loading></Loading>
     }
 
     return (
@@ -87,7 +102,7 @@ const Login = () => {
                 </Button>
             </Form>
             <p>New to The Memory Maker? <Link className='text-decoration-none' to='/register'>Please Register</Link></p>
-            <p>Forget Password? <Link className='text-decoration-none' to='/register'><span onClick={resetPassword}>Reset Password</span></Link></p>
+            <p>Forget Password?<Button variant="link" className='text-decoration-none mb-1' ><span onClick={resetPassword}>Reset Password</span></Button></p>
 
             <div className='d-flex align-items-center'>
                 <div style={{ height: '1px' }} className='bg-success w-50'></div>
@@ -98,6 +113,8 @@ const Login = () => {
             {errorElement}
 
             <Button onClick={() => signInWithGoogle()} variant="outline-dark"><FcGoogle className='fs-2' /> Google Sign In</Button>
+
+            <ToastContainer />
         </div>
     );
 };

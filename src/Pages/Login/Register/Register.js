@@ -4,27 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { ImCross } from 'react-icons/im';
-
-
+import Loading from '../../Shared/Loading/Loading';
 
 const Register = () => {
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-
-    const navigate = useNavigate();
-    if (user) {
-        navigate("/");
-    }
-
-    let registerError = '';
-    if (error) {
-        registerError = <div><p className='text-danger'> < ImCross /> {'Error: This email has been used before. Please try another email to register'}</p></div>
-    }
-
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -35,6 +17,28 @@ const Register = () => {
         const password = passwordRef.current.value;
         const name = nameRef.current.value;
         createUserWithEmailAndPassword(email, password);
+    }
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const navigate = useNavigate();
+
+    if (user) {
+        navigate("/");
+    }
+
+    let registerError = '';
+    if (error) {
+        registerError = <div><p className='text-danger'> < ImCross /> {'Error: This email has been used before. Please try another email to register'}</p></div>
+    }
+
+    if (loading) {
+        return <Loading></Loading>
     }
 
     return (
@@ -58,8 +62,6 @@ const Register = () => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password" required />
                     </Form.Group>
-
-
 
                     <Button variant="outline-dark" type="submit">
                         Register

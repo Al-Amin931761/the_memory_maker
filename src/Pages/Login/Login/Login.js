@@ -44,6 +44,8 @@ const Login = () => {
         loginError = <div><p className='text-danger'> < ImCross /> {'Error: Enter a valid email address and password'}</p></div>
     }
 
+
+
     // Sign In With Google 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
@@ -52,8 +54,8 @@ const Login = () => {
         errorElement = <div>
             <p className='text-danger'> < ImCross /> {'Error: Popup closed by user'}</p>
         </div>
-
     }
+
     if (googleUser) {
         navigate(from, { replace: true });
     }

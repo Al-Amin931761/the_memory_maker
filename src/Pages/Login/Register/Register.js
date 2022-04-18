@@ -38,25 +38,25 @@ const Register = () => {
                 <Form onSubmit={handleRegister}>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control ref={nameRef} type="name" placeholder="Please Enter Your Name" />
+                        <Form.Control ref={nameRef} type="name" placeholder="Please Enter Your Name" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" />
+                        <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password" />
+                        <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password" required />
                     </Form.Group>
 
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="outline-dark" type="submit">
                         Register
                     </Button>
                 </Form>
-                <p>Already have an account? <Link className='text-decoration-none' to='/login'><b>Please Login</b></Link>
+                <p>Already have an account? <Link className='text-decoration-none' to='/login'>Please Login</Link>
 
                 </p>
             </div>

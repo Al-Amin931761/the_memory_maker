@@ -5,7 +5,7 @@ import Blogs from './Pages/Blogs/Blogs';
 import Checkout from './Pages/Checkout/Checkout';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
-import RequireAuth from './Pages/Login/Login/RequireAuth/RequireAuth';
+import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';

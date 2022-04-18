@@ -1,6 +1,8 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Service.css';
+import { BsArrowRightSquare } from 'react-icons/bs';
 
 const Service = ({ service }) => {
     const { name, price, picture, description } = service;
@@ -10,7 +12,7 @@ const Service = ({ service }) => {
             <h2>{name}</h2>
             <p>{price}</p>
             <p><small>{description}</small></p>
-            <Link className='btn btn-success' to='/checkout'>Checkout</Link>
+            <Link to='/checkout'><Button variant="outline-dark">Checkout <BsArrowRightSquare className='fs-3' /></Button></Link>
         </div>
     );
 };

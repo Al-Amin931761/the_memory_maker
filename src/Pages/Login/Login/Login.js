@@ -57,7 +57,7 @@ const Login = () => {
 
 
     // reset password
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail();
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     const resetPassword = async () => {
         const email = emailRef.current.value;

@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { ImCross } from 'react-icons/im';
 
 
 
@@ -17,6 +18,11 @@ const Register = () => {
     const navigate = useNavigate();
     if (user) {
         navigate("/");
+    }
+
+    let registerError = '';
+    if (error) {
+        registerError = <div><p className='text-danger'> < ImCross /> {'Error: This email has been used before. Please try another email to register'}</p></div>
     }
 
     const nameRef = useRef('');
@@ -46,10 +52,13 @@ const Register = () => {
                         <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" required />
                     </Form.Group>
 
+                    {registerError}
+
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password" required />
                     </Form.Group>
+
 
 
                     <Button variant="outline-dark" type="submit">

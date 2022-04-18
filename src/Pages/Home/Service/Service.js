@@ -10,8 +10,8 @@ const Service = ({ service }) => {
         <div className='service'>
             <img width={290} src={picture} alt="" />
             <h2>{name}</h2>
-            <p>{price}</p>
-            <p><small>{description}</small></p>
+            <h4>{price}</h4>
+            <p>{description}</p>
             <Link to='/checkout'><Button variant="outline-dark">Checkout <BsArrowRightSquare className='fs-3' /></Button></Link>
         </div>
     );

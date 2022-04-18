@@ -2,13 +2,14 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Photography from '../Photography/Photography';
 import Services from '../Services/Services';
+import './home.css';
 
 const Home = () => {
     return (
-        <div>
+        <div >
             <Banner></Banner>
-            <Services></Services>
             <Photography></Photography>
+            <Services></Services>
         </div>
     );
 };

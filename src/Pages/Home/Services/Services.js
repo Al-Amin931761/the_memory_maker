@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Service from '../Service/Service';
 import './Services.css';
+import { FaCamera } from "react-icons/fa";
 
 const Services = () => {
 
@@ -15,7 +16,7 @@ const Services = () => {
 
     return (
         <div>
-            <h1 className='text-center'>Services ({services.length})</h1>
+            <h1 className='text-center mt-5'><FaCamera className='mb-2' />  Services ({services.length}) <FaCamera className='mb-2' /> </h1>
             <div className='services'>
                 {
                     services.map(service => <Service key={service.id} service={service}></Service>)

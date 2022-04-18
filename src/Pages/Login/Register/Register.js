@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { ImCross } from 'react-icons/im';
 import Loading from '../../Shared/Loading/Loading';
+import './Register.css';
 
 const Register = () => {
     const nameRef = useRef('');

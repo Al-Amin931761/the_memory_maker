@@ -43,32 +43,32 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className='register-container'>
             <div className='w-50 mx-auto mt-5 mb-5'>
-                <h2 className='text-center'>Please Register</h2>
+                <h2 className='text-center fw-bold'>Please Register</h2>
                 <Form onSubmit={handleRegister}>
                     <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control ref={nameRef} type="name" placeholder="Please Enter Your Name" required />
+                        <Form.Control ref={nameRef} type="name" placeholder="Enter Your Name" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" required />
+                        <Form.Control ref={emailRef} type="email" placeholder="Enter Your Email" required />
                     </Form.Group>
 
                     {registerError}
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password" required />
+                        <Form.Control ref={passwordRef} type="password" placeholder="Enter Your Password" required />
                     </Form.Group>
 
                     <Button variant="outline-dark" type="submit">
                         Register
                     </Button>
                 </Form>
-                <p>Already have an account? <Link className='text-decoration-none' to='/login'>Please Login</Link>
+                <p className='mt-3'>Already have an account? <Link className='text-decoration-none' to='/login'> Please Login</Link>
 
                 </p>
             </div>

@@ -10,10 +10,11 @@ import Register from './Pages/Login/Register/Register';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
+import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className='font'>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

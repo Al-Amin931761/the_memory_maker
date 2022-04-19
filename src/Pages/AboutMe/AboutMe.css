@@ -1,0 +1,14 @@
+.about-container {
+    background-color: #F8FCFB;
+}
+
+.about-container p {
+    background-color: #FDFCE5;
+    box-shadow: 4px 4px #C9CCD5;
+    transition: 0.9s;
+}
+
+.about-container p:hover {
+    background-color: #FDFCE5;
+    box-shadow: 8px 8px #787A91;
+}

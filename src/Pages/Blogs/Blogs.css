@@ -1,0 +1,34 @@
+.blogs-container {
+    background-color: #F8FCFB;
+    margin-bottom: 35px;
+}
+
+.first-question {
+    background-color: #FDFCE5;
+    box-shadow: 5px 5px #C9CCD5;
+    transition: 0.9s;
+}
+
+.first-question:hover {
+    box-shadow: 10px 10px #787A91;
+}
+
+.second-question {
+    background-color: #FDFCE5;
+    box-shadow: 5px 5px #C9CCD5;
+    transition: 0.9s;
+}
+
+.second-question:hover {
+    box-shadow: 10px 10px #787A91;
+}
+
+.third-question {
+    background-color: #FDFCE5;
+    box-shadow: 5px 5px #C9CCD5;
+    transition: 0.9s;
+}
+
+.third-question:hover {
+    box-shadow: 10px 10px #787A91;
+}

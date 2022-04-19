@@ -83,40 +83,42 @@ const Login = () => {
     }
 
     return (
-        <div className='w-50 mx-auto mt-5 mb-5'>
-            <h2 className='text-center'>Please Login</h2>
+        <div className='login-container'>
+            <div className='w-50 mx-auto mt-5 mb-5'>
+                <h2 className='text-center fw-bold'>Please Login</h2>
 
-            <Form onSubmit={handleLogin}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Please Enter Your Email" required />
-                </Form.Group>
+                <Form onSubmit={handleLogin}>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control ref={emailRef} type="email" placeholder="Enter Your Email" required />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control ref={passwordRef} type="password" placeholder="Please Enter Your Password " required />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control ref={passwordRef} type="password" placeholder="Enter Your Password " required />
+                    </Form.Group>
 
-                {loginError}
+                    {loginError}
 
-                <Button variant="outline-dark" type="submit">
-                    Login <IoMdLogIn className='fs-3' />
-                </Button>
-            </Form>
-            <p>New to The Memory Maker? <Link className='text-decoration-none' to='/register'>Please Register</Link></p>
-            <p>Forget Password?<Button variant="link" className='text-decoration-none mb-1' ><span onClick={resetPassword}>Reset Password</span></Button></p>
+                    <Button variant="outline-dark" type="submit">
+                        Login <IoMdLogIn className='fs-3' />
+                    </Button>
+                </Form>
+                <p className='mt-3'>New to The Memory Maker? <Link className='text-decoration-none' to='/register'>Please Register</Link></p>
+                <p>Forget Password?<Button variant="link" className='text-decoration-none mb-1' ><span onClick={resetPassword}>Reset Password</span></Button></p>
 
-            <div className='d-flex align-items-center'>
-                <div style={{ height: '1px' }} className='bg-success w-50'></div>
-                <p className='mt-2 px-2'>Or</p>
-                <div style={{ height: '1px' }} className='bg-success w-50'></div>
+                <div className='d-flex align-items-center'>
+                    <div style={{ height: '1px' }} className='bg-dark w-50'></div>
+                    <p className='mt-2 px-2'>Or</p>
+                    <div style={{ height: '1px' }} className='bg-dark w-50'></div>
+                </div>
+
+                {errorElement}
+
+                <Button onClick={() => signInWithGoogle()} variant="outline-dark"><FcGoogle className='fs-2' /> Google Sign In</Button>
+
+                <ToastContainer />
             </div>
-
-            {errorElement}
-
-            <Button onClick={() => signInWithGoogle()} variant="outline-dark"><FcGoogle className='fs-2' /> Google Sign In</Button>
-
-            <ToastContainer />
         </div>
     );
 };

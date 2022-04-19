@@ -12,44 +12,44 @@ import { FaCamera } from "react-icons/fa";
 const Photography = () => {
     return (
         <div>
-            <h2 className='text-center m-5'><FaCamera className='mb-2' /> My Best Photographs <FaCamera className='mb-2' /></h2>
+            <h2 className='text-center m-4 fw-bold'><FaCamera className='mb-2' /> My Best Photographs <FaCamera className='mb-2' /></h2>
 
             {/* first column  */}
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <div class="row mb-3">
+            <div className="container">
+                <div className="row">
+                    <div className="col-4">
+                        <div className="row mb-3">
 
-                            <img class="img-fluid" src={img1} alt="" />
+                            <img className="img-fluid" src={img1} alt="" />
                         </div>
-                        <div class="row">
-                            <img class="img-fluid" src={img2} alt="" />
+                        <div className="row">
+                            <img className="img-fluid" src={img2} alt="" />
                         </div>
                     </div>
                     {/* middle column  */}
 
-                    <div class="col-4">
-                        <div class="row mb-3">
-                            <img class="img-fluid" src={img3} alt="" />
+                    <div className="col-4">
+                        <div className="row mb-3">
+                            <img className="img-fluid" src={img3} alt="" />
                         </div>
-                        <div class="mb-3">
-                            <img class="img-fluid" src={img4} alt="" />
+                        <div className="mb-3">
+                            <img className="img-fluid" src={img4} alt="" />
                         </div>
-                        <div class="mb-6">
-                            <img class="img-fluid" src={img5} alt="" />
+                        <div className="mb-6">
+                            <img className="img-fluid" src={img5} alt="" />
                         </div>
                     </div>
 
                     {/* last column   */}
-                    <div class="col-4">
-                        <div class="row mb-3">
-                            <img class="img-fluid" src={img6} alt="" />
+                    <div className="col-4">
+                        <div className="row mb-3">
+                            <img className="img-fluid" src={img6} alt="" />
                         </div>
-                        <div class="mb-3">
-                            <img class="img-fluid" src={img7} alt="" />
+                        <div className="mb-3">
+                            <img className="img-fluid" src={img7} alt="" />
                         </div>
-                        <div class="mb-6">
-                            <img class="img-fluid" src={img8} alt="" />
+                        <div className="mb-6">
+                            <img className="img-fluid" src={img8} alt="" />
                         </div>
                     </div>
                 </div>

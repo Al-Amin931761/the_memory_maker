@@ -1,24 +1,13 @@
 .service {
-    background-color: tomato;
+    background-color: #FDFCE5;
     padding: 20px;
     margin: 20px;
-    /* border: 2px solid seagreen; */
-    border-radius: 5px;
+    border-radius: 4px;
     text-align: center;
-    opacity: 0.98;
+    box-shadow: 5px 5px #C9CCD5;
+    transition: 0.9s;
 }
 
 .service:hover {
-    background-color: darkcyan;
-    border: 2px solid black;
-    box-shadow: 10px 10px lightblue;
-    opacity: 1;
-}
-
-.checkout {
-    background-color: goldenrod;
-    border: none;
-    margin: 5px;
-    padding: 10px;
-    border-radius: 5px;
+    box-shadow: 10px 10px #787A91;
 }

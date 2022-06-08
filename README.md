@@ -1,7 +1,7 @@
 # The Memory Maker
 ## Live site: [click here](https://independent-service-prov-e099d.web.app/)
 
-* o	The Memory Maker is a photographer's website.
+* The Memory Maker is a photographer's website.
 * I create 5 sections on the home page.
 * The Services section will have at least 3 services.
 * I create a route named Checkout route. It's a protected route.

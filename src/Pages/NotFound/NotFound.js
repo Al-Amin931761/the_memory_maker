@@ -1,11 +1,12 @@
 import React from 'react';
 import notfound from '../../images/notfound.jpg'
-import './NotFound.css';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const NotFound = () => {
     return (
-        <div className='not-found'>
-            <img src={notfound} alt="" />
+        <div>
+            <PageTitle title="404"> </PageTitle>
+            <img className='img-fluid' src={notfound} alt="" />
         </div>
     );
 };

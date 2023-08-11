@@ -1,13 +1,13 @@
 .service {
-    background-color: #FDFCE5;
-    padding: 20px;
     margin: 20px;
-    border-radius: 4px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fdfce56b;
     text-align: center;
-    box-shadow: 5px 5px #C9CCD5;
-    transition: 0.9s;
+    transition: 0.7s;
 }
 
 .service:hover {
-    box-shadow: 10px 10px #787A91;
+    background-color: #FDFCE5;
+    transform: scale(1.05);
 }

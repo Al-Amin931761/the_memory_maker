@@ -1,0 +1,29 @@
+.link-styles {
+    text-decoration: none;
+    color: grey;
+    margin-right: 20px;
+}
+
+.link-styles:hover {
+    color: white;
+    transition: 0.5s;
+}
+
+.active {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.active:hover {
+    color: white;
+}
+
+.logout-button {
+    color: grey;
+    transition: 0.5s;
+}
+
+.logout-button:hover {
+    color: white;
+}

@@ -1,15 +1,16 @@
 import React, { useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Button } from 'react-bootstrap';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
-import { FcGoogle } from 'react-icons/fc';
-import { IoMdLogIn } from 'react-icons/io';
-import { ImCross } from 'react-icons/im';
+import { BsArrowRight } from 'react-icons/bs';
 import './Login.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
+import Social from '../Social/Social';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
+import loginImage from '../../../images/login.png'
+import { BiSolidLogIn } from 'react-icons/bi';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -21,15 +22,11 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
+        event.target.reset();
     }
 
     // signIn With Email And Password
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -41,40 +38,22 @@ const Login = () => {
 
     let loginError = '';
     if (error) {
-        loginError = <div><p className='text-danger'> < ImCross /> {'Error: Enter a valid email address and password'}</p></div>
+        loginError = <p className='text-danger'> {error.message}</p>
     }
 
-
-
-    // Sign In With Google 
-    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-
-    let errorElement = '';
-    if (googleError) {
-        errorElement = <div>
-            <p className='text-danger'> < ImCross /> {'Error: Popup closed by user'}</p>
-        </div>
-    }
-
-    if (googleUser) {
-        navigate(from, { replace: true });
-    }
-
-    if (loading || googleLoading) {
+    if (loading) {
         return <Loading></Loading>
     }
-
-
 
     // reset password
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {
             await sendPasswordResetEmail(email);
-            toast('Sent email');
+            toast.info('An email has been sent to reset your password');
         }
         else {
-            toast('Please enter your email address');
+            toast.error('Please enter your email address');
         }
     }
 
@@ -83,41 +62,47 @@ const Login = () => {
     }
 
     return (
-        <div className='login-container'>
-            <div className='w-50 mx-auto mt-5 mb-5'>
-                <h2 className='text-center fw-bold'>Please Login</h2>
+        <div className='common-styles'>
+            <PageTitle title="Login"></PageTitle>
+            <div>
+                <h2 className='text-center fw-medium'>Please Login</h2>
 
-                <Form onSubmit={handleLogin}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control ref={emailRef} type="email" placeholder="Enter Your Email" required />
-                    </Form.Group>
+                <div className='login-container'>
+                    {/* image  */}
+                    <div className='login-image'>
+                        <img className='img-fluid' src={loginImage} alt="" />
+                    </div>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control ref={passwordRef} type="password" placeholder="Enter Your Password " required />
-                    </Form.Group>
+                    {/* form  */}
+                    <div className='login'>
+                        <form onSubmit={handleLogin}>
+                            <div className="form-floating mb-3">
+                                <input ref={emailRef} type="email" className="form-control" id="floatingInput" placeholder="Email Address" required />
+                                <label htmlFor="floatingInput">Email address</label>
+                            </div>
+                            <div className="form-floating mb-3">
+                                <input ref={passwordRef} type="password" className="form-control" id="floatingPassword" placeholder="Password" required />
+                                <label htmlFor="floatingPassword">Password</label>
+                            </div>
 
-                    {loginError}
+                            {loginError}
 
-                    <Button variant="outline-dark" type="submit">
-                        Login <IoMdLogIn className='fs-3' />
-                    </Button>
-                </Form>
-                <p className='mt-3'>New to The Memory Maker? <Link className='text-decoration-none' to='/register'>Please Register</Link></p>
-                <p>Forget Password?<Button variant="link" className='text-decoration-none mb-1' ><span onClick={resetPassword}>Reset Password</span></Button></p>
+                            <Button className='' variant="outline-dark" type="submit">Login <BiSolidLogIn className='icon' /></Button>
+                        </form>
+                        <p className='mt-3'>New to The Memory Maker? <Link className='text-decoration-none' to='/register'> Please Register <BsArrowRight /></Link></p>
+                        <p>Forget Password? <span onClick={resetPassword} className='text-primary'>Reset Password <BsArrowRight /></span></p>
 
-                <div className='d-flex align-items-center'>
-                    <div style={{ height: '1px' }} className='bg-dark w-50'></div>
-                    <p className='mt-2 px-2'>Or</p>
-                    <div style={{ height: '1px' }} className='bg-dark w-50'></div>
+                        <div className='d-flex align-items-center'>
+                            <div style={{ height: '1px' }} className='bg-dark w-50'></div>
+                            <p className='mt-2 px-2'>Or</p>
+                            <div style={{ height: '1px' }} className='bg-dark w-50'></div>
+                        </div>
+
+                        <div className='text-center'>
+                            <Social></Social>
+                        </div>
+                    </div>
                 </div>
-
-                {errorElement}
-
-                <Button onClick={() => signInWithGoogle()} variant="outline-dark"><FcGoogle className='fs-2' /> Google Sign In</Button>
-
-                <ToastContainer />
             </div>
         </div>
     );

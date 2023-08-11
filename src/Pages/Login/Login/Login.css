@@ -1,4 +1,33 @@
 .login-container {
-    background-color: #F8FCFB;
-    padding: 20px;
+    display: flex;
+}
+
+.icon:hover {
+    color: white !important;
+}
+
+/* responsive */
+@media only screen and (max-width:991px) {
+    .login-container .login-image {
+        display: none;
+    }
+
+    .login-container .login {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:992px) {
+    .login-container .login-image {
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    .login-container .login {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

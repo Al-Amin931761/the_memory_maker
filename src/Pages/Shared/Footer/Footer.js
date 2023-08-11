@@ -11,10 +11,7 @@ const Footer = () => {
     const year = today.getFullYear();
     return (
         <footer className='text-center bg-dark footer'>
-            <IoIosArrowUp />
-            <p>Back to Top</p>
-
-            <p>FOLLOW ME ON:</p>
+            <p className='mt-3'>FOLLOW ME ON:</p>
             <a href="https://www.facebook.com/" target="_blank"><FaFacebook className='text-white' /></a>
             <a className='ms-3 me-3' href="https://twitter.com/" target="_blank"><GrTwitter className='text-white' /></a>
             <a href="https://www.instagram.com/" target="_blank"><BsInstagram className='text-white' /></a>

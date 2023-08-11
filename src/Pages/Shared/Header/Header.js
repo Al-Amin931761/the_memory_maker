@@ -1,17 +1,18 @@
 import React from 'react';
+import './Header.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../../images/logo.png'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
-
 
 const Header = () => {
     const [user] = useAuthState(auth);
     const handleLogOut = () => {
         signOut(auth);
     }
+
     return (
         <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -23,17 +24,16 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto ">
-                        <Nav.Link as={Link} to="/">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/blogs">Blogs</Nav.Link>
+                    <Nav className="me-auto">
+                        <NavLink to="/" className={({ isActive }) => isActive ? "active" : "link-styles"}>Home</NavLink>
+                        <NavLink to="/about" className="link-styles">About</NavLink>
                     </Nav>
                     <Nav>
-                        <Nav.Link as={Link} to="/aboutme">About Me</Nav.Link>
-                        <Nav.Link as={Link} to="/register">Register</Nav.Link>
+                        <NavLink to="/blogs" className="link-styles">Blogs</NavLink>
+                        <NavLink to="/contact" className="link-styles">Contact</NavLink>
                         {
-                            user ? <button className='btn btn-link text-decoration-none text-light ' onClick={handleLogOut}>Log Out</button> : <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
+                            user ? <span className='logout-button' onClick={handleLogOut}>Log Out</span> : <NavLink to="/login" className="link-styles">Login</NavLink>
                         }
-
                     </Nav>
                 </Navbar.Collapse>
             </Container>

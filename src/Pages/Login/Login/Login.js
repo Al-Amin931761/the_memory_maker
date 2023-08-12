@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -11,30 +11,32 @@ import Social from '../Social/Social';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import loginImage from '../../../images/login.png'
 import { BiSolidLogIn } from 'react-icons/bi';
+import useToken from '../../../hooks/useToken';
 
 const Login = () => {
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [token] = useToken(user);
+
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-
     const handleLogin = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
         event.target.reset();
-    }
-
-    // signIn With Email And Password
-    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    };
 
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    if (user) {
-        navigate(from, { replace: true });
-    }
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, navigate, from])
 
     let loginError = '';
     if (error) {

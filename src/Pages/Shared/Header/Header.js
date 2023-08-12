@@ -28,6 +28,9 @@ const Header = () => {
                     <Nav className="me-auto">
                         <NavLink to="/" className={({ isActive }) => isActive ? "active" : "link-styles"}>Home</NavLink>
                         <NavLink to="/about" className="link-styles">About</NavLink>
+                        {
+                            user && <NavLink to="/dashboard" className="link-styles">Dashboard</NavLink>
+                        }
                     </Nav>
                     <Nav>
                         <NavLink to="/blogs" className="link-styles">Blogs</NavLink>

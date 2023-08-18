@@ -12,7 +12,7 @@ import { FaCamera } from "react-icons/fa";
 const Photography = () => {
     return (
         <div>
-            <h2 className='text-center m-4 fw-bold'><FaCamera className='mb-2' /> My Best Photographs <FaCamera className='mb-2' /></h2>
+            <h1 className='text-center m-4 fw-bold'><FaCamera className='mb-2' /> My Best Photographs <FaCamera className='mb-2' /></h1>
 
             {/* first column  */}
             <div className="container">

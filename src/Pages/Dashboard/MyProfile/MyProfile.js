@@ -131,7 +131,7 @@ const MyProfile = () => {
                     </div>
                     {/* image */}
                     <div className='profile-picture'>
-                        <img className='img-fluid shadow' src={user.photoURL} alt="" />
+                        <img className='img-fluid shadow-sm img-thumbnail' src={user.photoURL} alt="" />
                     </div>
 
                     <p>Name: {user.displayName}</p>

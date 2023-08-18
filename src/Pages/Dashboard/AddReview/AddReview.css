@@ -1,0 +1,31 @@
+.review-container {
+    margin: 10px 0 10px 0;
+}
+
+.review-and-ratings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.review textarea {
+    height: 150px !important;
+}
+
+/* responsive */
+@media only screen and (max-width: 768px) {
+    .review-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .review-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+    }
+}

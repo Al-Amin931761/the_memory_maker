@@ -93,14 +93,14 @@ const Register = () => {
 
                             {/* password */}
                             <div className="form-floating my-3">
-                                <input ref={passwordRef} type="password" className="form-control" id="floatingInput" placeholder="Password" required />
-                                <label htmlFor="floatingInput">Password</label>
+                                <input ref={passwordRef} type="password" className="form-control" id="password" placeholder="Password" required />
+                                <label htmlFor="password">Password</label>
                             </div>
 
                             {/*confirm password */}
                             <div className="form-floating">
-                                <input ref={confirmPasswordRef} type="password" className="form-control" id="floatingInput" placeholder=" Confirm Password" required />
-                                <label htmlFor="floatingInput">Confirm Password</label>
+                                <input ref={confirmPasswordRef} type="password" className="form-control" id="confirmPassword" placeholder=" Confirm Password" required />
+                                <label htmlFor="confirmPassword">Confirm Password</label>
                             </div>
 
                             {/* terms and conditions */}

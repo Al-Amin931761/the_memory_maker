@@ -1,17 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './MyProfile.css';
+import auth from '../../../firebase.init';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import Sidebar from '../Sidebar/Sidebar';
-import auth from '../../../firebase.init';
-import { useAuthState, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useUpdatePassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Button, Modal } from 'react-bootstrap';
 import { FaRegEdit } from 'react-icons/fa';
 import Loading from '../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
+import { signOut } from 'firebase/auth';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
-    const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
+    const [updatePassword, passwordUpdating, updatePasswordError] = useUpdatePassword(auth);
+    const [updateProfile, profileUpdating, updateProfileError] = useUpdateProfile(auth);
     const [modalShow, setModalShow] = useState(false);
     const [profileData, setProfileData] = useState([]);
 
@@ -44,7 +46,13 @@ const MyProfile = () => {
             },
             body: JSON.stringify(profileInfo)
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem("accessToken");
+                }
+                return res.json();
+            })
             .then(data => {
                 if (data.modifiedCount > 0) {
                     toast.success("Profile updated successfully");
@@ -56,20 +64,56 @@ const MyProfile = () => {
 
     // load profile data
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/user/${user?.email}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem("accessToken");
+                }
+                return res.json();
+            })
             .then(data => setProfileData(data))
     }, [user, profileData]);
 
+    // update password 
+    const newPasswordRef = useRef('');
+    const confirmNewPasswordRef = useRef('');
+    const handleUpdatePassword = async (event) => {
+        event.preventDefault();
+        const newPassword = newPasswordRef.current.value;
+        const confirmNewPassword = confirmNewPasswordRef.current.value;
+        if (newPassword === confirmNewPassword) {
+            const success = await updatePassword(confirmNewPassword);
+            if (success === undefined) {
+                toast.info(`Password updated successfully`);
+            }
+        } else {
+            toast.error("Passwords did not match. Try again.");
+        }
+        event.target.reset();
+    }
 
-    if (updating) {
-        return <Loading></Loading>
+
+    if (profileUpdating || passwordUpdating) {
+        return <Loading></Loading>;
     };
 
+    // update profile error 
     let error = '';
     if (updateProfileError) {
         error = <div><p className='text-danger'> {updateProfileError?.message}</p></div>
     };
+
+    // update password error 
+    let passwordError = '';
+    if (updatePasswordError) {
+        passwordError = <div><p className='text-danger'> {updatePasswordError?.message}</p></div>
+    }
 
     return (
         <div className='common-styles'>
@@ -97,20 +141,21 @@ const MyProfile = () => {
                 </div>
 
                 {/* change password */}
-                <form className='border border-2 border-primary d-flex flex-column justify-content-center align-items-center px-3'>
+                <form onSubmit={handleUpdatePassword} className='border border-2 border-primary d-flex flex-column justify-content-center align-items-center px-3'>
                     <h3 className='text-center'>Update Password</h3>
-                    {/* password */}
+                    {/* new password */}
                     <div className="form-floating my-3 w-100">
-                        <input type="password" className="form-control" id="floatingInput" placeholder="New Password" required />
-                        <label htmlFor="floatingInput">New Password</label>
+                        <input ref={newPasswordRef} type="password" className="form-control" id="newPassword" placeholder="New Password" required />
+                        <label htmlFor="newPassword">New Password</label>
                     </div>
 
-                    {/*confirm password */}
+                    {/*confirm new password */}
                     <div className="form-floating w-100">
-                        <input type="password" className="form-control" id="floatingInput" placeholder=" Confirm New Password" required />
-                        <label htmlFor="floatingInput">Confirm New Password</label>
+                        <input ref={confirmNewPasswordRef} type="password" className="form-control" id="confirmNewPassword" placeholder=" Confirm New Password" required />
+                        <label htmlFor="confirmNewPassword">Confirm New Password</label>
                     </div>
-                    <Button className='mt-3 px-4' type='submit' variant="outline-dark">Update</Button>
+                    <Button className='my-3 px-4' type='submit' variant="outline-dark">Update</Button>
+                    {passwordError}
                 </form>
             </div>
 

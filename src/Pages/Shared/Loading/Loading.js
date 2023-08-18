@@ -1,10 +1,14 @@
 import React from 'react';
-import { Spinner } from 'react-bootstrap';
+import { PuffLoader } from 'react-spinners';
 
 const Loading = () => {
     return (
-        <div style={{ height: '500px' }} className='w-100 d-flex  justify-content-center align-items-center'>
-            <Spinner animation="grow" variant="danger" />
+        <div className='vh-100 d-flex justify-content-center align-items-center'>
+            <PuffLoader color="#36d7b7"
+                size={150}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+            />
         </div>
     );
 };

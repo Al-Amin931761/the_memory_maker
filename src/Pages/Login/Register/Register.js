@@ -52,7 +52,7 @@ const Register = () => {
 
     let registerError = '';
     if (error || updateProfileError) {
-        registerError = <div><p className='text-danger'> {error?.message}</p></div>
+        registerError = <div><p className='text-danger'> {error?.message || updateProfileError.message}</p></div>
     }
 
     if (loading || updating) {

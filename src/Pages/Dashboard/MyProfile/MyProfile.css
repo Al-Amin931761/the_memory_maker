@@ -1,0 +1,50 @@
+.my-profile-container {
+    margin-top: 20px;
+}
+
+.profile-card {
+    position: relative;
+}
+
+.edit-profile-button {
+    position: absolute;
+    right: 10px;
+}
+
+.profile-card p {
+    margin: 10px 10px 10px 10px;
+    font-size: 20px;
+    word-break: break-all;
+}
+
+.profile-picture {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-picture img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+/* responsive */
+@media only screen and (max-width:767px) {
+    .my-profile-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .profile-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .my-profile-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+}

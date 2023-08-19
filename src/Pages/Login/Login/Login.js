@@ -67,7 +67,7 @@ const Login = () => {
         <div className='common-styles'>
             <PageTitle title="Login"></PageTitle>
             <div>
-                <h2 className='text-center fw-medium'>Please Login</h2>
+                <h2 className='text-center fw-medium second-font'>Please Login</h2>
 
                 <div className='login-container'>
                     {/* image  */}
@@ -79,12 +79,12 @@ const Login = () => {
                     <div className='login'>
                         <form onSubmit={handleLogin}>
                             <div className="form-floating mb-3">
-                                <input ref={emailRef} type="email" className="form-control" id="floatingInput" placeholder="Email Address" required />
-                                <label htmlFor="floatingInput">Email address</label>
+                                <input ref={emailRef} type="email" className="form-control" id="email-address" placeholder="Email Address" required />
+                                <label htmlFor="email-address">Email address</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input ref={passwordRef} type="password" className="form-control" id="floatingPassword" placeholder="Password" required />
-                                <label htmlFor="floatingPassword">Password</label>
+                                <input ref={passwordRef} type="password" className="form-control" id="password" placeholder="Password" required />
+                                <label htmlFor="password">Password</label>
                             </div>
 
                             {loginError}

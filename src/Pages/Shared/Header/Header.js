@@ -19,7 +19,7 @@ const Header = () => {
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <div className='d-flex align-items-center'>
-                        <img width={40} src={logo} alt="" />
+                        <img className='' width={40} src={logo} alt="" />
                         <h3 className='ms-2'>The Memory Maker</h3>
                     </div>
                 </Navbar.Brand>

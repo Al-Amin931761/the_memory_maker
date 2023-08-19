@@ -16,7 +16,7 @@ const Services = () => {
 
     return (
         <div>
-            <h1 className='text-center mt-5 fw-bold'><FaCamera className='mb-2' />  Services ({services.length}) <FaCamera className='mb-2' /> </h1>
+            <h1 className='text-center mt-5 fw-bold second-font'><FaCamera className='mb-2' />  Services ({services.length}) <FaCamera className='mb-2' /> </h1>
             <div className='services'>
                 {
                     services.map(service => <Service key={service._id} service={service}></Service>)

@@ -5,7 +5,7 @@ const Blogs = () => {
     return (
         <div>
             <PageTitle title="Blogs"></PageTitle>
-            <h2 className='text-center'>Coming Soon</h2>
+            <h2 className='text-center second-font'>Coming Soon</h2>
         </div>
     );
 };

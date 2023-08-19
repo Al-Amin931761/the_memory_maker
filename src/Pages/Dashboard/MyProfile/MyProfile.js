@@ -120,7 +120,7 @@ const MyProfile = () => {
             <PageTitle title="My Profile"></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin'>My Profile</h2>
+                <h2 className='title-margin second-font'>My Profile</h2>
             </div>
 
             <div className='my-profile-container'>
@@ -142,7 +142,7 @@ const MyProfile = () => {
 
                 {/* change password */}
                 <form onSubmit={handleUpdatePassword} className='border border-2 border-primary d-flex flex-column justify-content-center align-items-center px-3'>
-                    <h3 className='text-center'>Update Password</h3>
+                    <h3 className='text-center second-font'>Update Password</h3>
                     {/* new password */}
                     <div className="form-floating my-3 w-100">
                         <input ref={newPasswordRef} type="password" className="form-control" id="newPassword" placeholder="New Password" required />

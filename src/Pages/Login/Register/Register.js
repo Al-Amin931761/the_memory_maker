@@ -62,6 +62,7 @@ const Register = () => {
     return (
         <div className='common-styles'>
             <PageTitle title="Register"></PageTitle>
+            <h2 className='text-center fw-medium second-font'>Please Register</h2>
 
             <div className='register-container'>
                 <div className="register-image">
@@ -70,25 +71,24 @@ const Register = () => {
 
                 <div className="register">
                     <div>
-                        <h2 className='text-center fw-medium'>Please Register</h2>
                         <form onSubmit={handleRegister}>
 
                             {/* name */}
                             <div className="form-floating">
-                                <input ref={nameRef} type="text" className="form-control" id="floatingInput" placeholder="Name" required />
-                                <label htmlFor="floatingInput">Name</label>
+                                <input ref={nameRef} type="text" className="form-control" id="name" placeholder="Name" required />
+                                <label htmlFor="name">Name</label>
                             </div>
 
                             {/* image URL */}
                             <div className="form-floating my-3">
-                                <input ref={imageRef} type="text" className="form-control" id="floatingInput" placeholder="Image URL" required />
-                                <label htmlFor="floatingInput">Image URL</label>
+                                <input ref={imageRef} type="text" className="form-control" id="image-url" placeholder="Image URL" required />
+                                <label htmlFor="image-url">Image URL</label>
                             </div>
 
                             {/* email */}
                             <div className="form-floating">
-                                <input ref={emailRef} type="email" className="form-control" id="floatingInput" placeholder="Email" required />
-                                <label htmlFor="floatingInput">Email Address</label>
+                                <input ref={emailRef} type="email" className="form-control" id="email-address" placeholder="Email" required />
+                                <label htmlFor="email-address">Email Address</label>
                             </div>
 
                             {/* password */}

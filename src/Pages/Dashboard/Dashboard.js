@@ -13,11 +13,11 @@ const Dashboard = () => {
             <PageTitle title="Dashboard"></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin'>Dashboard</h2>
+                <h2 className='title-margin second-font'>Dashboard</h2>
             </div>
 
             <div className='h-100 d-flex justify-content-center align-items-center'>
-                <h2>Welcome to the Dashboard</h2>
+                <h2 className='second-font'>Welcome to the Dashboard</h2>
             </div>
         </div >
     );

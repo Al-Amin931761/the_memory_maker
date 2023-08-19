@@ -1,8 +1,12 @@
 .app {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto Serif', serif;
   background-color: #F8FCFB;
 }
 
 .common-styles {
   margin: 10px;
+}
+
+.second-font {
+  font-family: 'Old Standard TT', serif;
 }

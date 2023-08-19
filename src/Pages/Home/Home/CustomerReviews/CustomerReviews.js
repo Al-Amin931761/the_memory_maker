@@ -11,7 +11,7 @@ const CustomerReviews = () => {
     }, [reviews])
     return (
         <div>
-            <h1 className='text-center mt-5 fw-bold'><BsPeopleFill className='mb-1' /> What our customer say <BsPeopleFill className='mb-1' /></h1>
+            <h1 className='text-center mt-5 fw-bold second-font'><BsPeopleFill className='mb-1' /> What our customer say <BsPeopleFill className='mb-1' /></h1>
 
             <div>
                 {

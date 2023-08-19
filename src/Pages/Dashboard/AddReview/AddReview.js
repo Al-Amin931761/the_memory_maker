@@ -75,7 +75,7 @@ const AddReview = () => {
             <PageTitle title='Add Review'></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin'>Leave a Review</h2>
+                <h2 className='title-margin second-font'>Leave a Review</h2>
             </div>
 
             <div className='review-container'>
@@ -88,7 +88,7 @@ const AddReview = () => {
                 <div className='review-and-ratings'>
                     {/* ratings */}
                     <div className='my-3 d-flex flex-column align-items-center mt-3'>
-                        <p className='mb-0'>Click the stars to rate us</p>
+                        <p className='mb-0'>Click stars to rate</p>
                         <StarPicker onChange={onChange} value={rating} halfStars doubleTapResets={true} numberStars={5} size={60} />
                     </div>
 

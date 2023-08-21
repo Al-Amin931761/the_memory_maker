@@ -28,13 +28,15 @@ const Header = () => {
                     <Nav className="me-auto">
                         <NavLink to="/" className={({ isActive }) => isActive ? "active" : "link-styles"}>Home</NavLink>
                         <NavLink to="/about" className="link-styles">About</NavLink>
+                        <NavLink to="/faq" className="link-styles">FAQ</NavLink>
+                        <NavLink to="/faq" className="link-styles">Prints</NavLink>
                         {
                             user && <NavLink to="/dashboard" className="link-styles">Dashboard</NavLink>
                         }
                     </Nav>
                     <Nav>
-                        <NavLink to="/blogs" className="link-styles">Blogs</NavLink>
                         <NavLink to="/contact" className="link-styles">Contact</NavLink>
+                        <NavLink to="/packages" className="link-styles">Packages</NavLink>
                         {
                             user ? <span className='logout-button' onClick={handleLogOut}>Log Out</span> : <NavLink to="/login" className="link-styles">Login</NavLink>
                         }

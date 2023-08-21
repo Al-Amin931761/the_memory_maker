@@ -1,16 +1,16 @@
 import About from "../Pages/About/About";
-import Blogs from "../Pages/Blogs/Blogs";
-import Checkout from "../Pages/Checkout/Checkout";
 import Contact from "../Pages/Contact/Contact";
 import AddReview from "../Pages/Dashboard/AddReview/AddReview";
 import Bookings from "../Pages/Dashboard/Bookings/Bookings";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
+import FAQ from "../Pages/FAQ/FAQ";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
 import NotFound from "../Pages/NotFound/NotFound";
+import Packages from "../Pages/Packages/Packages";
 import Main from "../Pages/layout/Main";
 import PrivateRoute from "./PrivateRoute";
 
@@ -26,8 +26,16 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: '/packages',
+                element: <Packages></Packages>
+            },
+            {
                 path: '/about',
                 element: <About></About>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             },
             {
                 path: '/login',
@@ -36,10 +44,6 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
-            },
-            {
-                path: '/blogs',
-                element: <Blogs></Blogs>
             },
             {
                 path: '/contact',
@@ -64,10 +68,6 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/bookings',
                 element: <PrivateRoute><Bookings></Bookings></PrivateRoute>
-            },
-            {
-                path: '/checkout',
-                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             },
             {
                 path: '*',

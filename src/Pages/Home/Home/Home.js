@@ -1,7 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Photography from '../Photography/Photography';
-import Services from '../Services/Services';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import CustomerReviews from './CustomerReviews/CustomerReviews';
 
@@ -15,7 +14,6 @@ const Home = () => {
                 <p>I offer fashion, personal, outdoor, birthday, kids, newborn & babies, commercial, product, e-commerce, and event photography, if you want anything else let's chat and we can come up with something to fit what you need!</p>
             </div>
             <Photography></Photography>
-            <Services></Services>
             <CustomerReviews></CustomerReviews>
         </div>
     );

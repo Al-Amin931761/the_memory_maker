@@ -1,4 +1,4 @@
-.service {
+.package {
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -7,7 +7,7 @@
     transition: 0.7s;
 }
 
-.service:hover {
+.package:hover {
     background-color: #FDFCE5;
     transform: scale(1.05);
 }

@@ -1,0 +1,32 @@
+.months-and-locations {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid green; */
+}
+
+/* responsive */
+@media only screen and (max-width:991px) {
+    .travel-dates-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .months-and-locations p {
+        font-size: 4.9vw;
+        margin: 27px 0;
+    }
+}
+
+@media only screen and (min-width:992px) {
+    .travel-dates-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 70px;
+    }
+
+    .months-and-locations p {
+        font-size: 2.5vw;
+        margin: 27px 0px;
+    }
+}

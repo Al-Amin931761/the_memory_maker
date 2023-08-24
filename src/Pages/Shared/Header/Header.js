@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
+import { GiShoppingCart } from 'react-icons/gi';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -28,7 +29,7 @@ const Header = () => {
                     <Nav className="me-auto">
                         <NavLink to="/" className={({ isActive }) => isActive ? "active" : "link-styles"}>Home</NavLink>
                         <NavLink to="/packages" className="link-styles">Packages</NavLink>
-                        <NavLink to="/faq" className="link-styles">Prints</NavLink>
+                        <NavLink to="/prints" className="link-styles">Prints</NavLink>
                         {
                             user && <NavLink to="/dashboard" className="link-styles">Dashboard</NavLink>
                         }
@@ -37,10 +38,10 @@ const Header = () => {
                     <Nav>
                         <NavLink to="/about" className="link-styles">About</NavLink>
                         <NavLink to="/faq" className="link-styles">FAQ</NavLink>
-
                         {
                             user ? <span className='logout-button' onClick={handleLogOut}>Log Out</span> : <NavLink to="/login" className="link-styles">Login</NavLink>
                         }
+                        <NavLink to="/cart" className="link-styles"><GiShoppingCart className='fs-3 pb-1' /></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

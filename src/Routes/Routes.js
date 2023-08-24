@@ -1,4 +1,5 @@
 import About from "../Pages/About/About";
+import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
 import AddReview from "../Pages/Dashboard/AddReview/AddReview";
 import Bookings from "../Pages/Dashboard/Bookings/Bookings";
@@ -11,6 +12,8 @@ import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
 import NotFound from "../Pages/NotFound/NotFound";
 import Packages from "../Pages/Packages/Packages";
+import PrintDetails from "../Pages/Prints/Print/PrintDetails/PrintDetails";
+import Prints from "../Pages/Prints/Prints";
 import Main from "../Pages/layout/Main";
 import PrivateRoute from "./PrivateRoute";
 
@@ -38,12 +41,25 @@ export const router = createBrowserRouter([
                 element: <FAQ></FAQ>
             },
             {
+                path: '/prints',
+                element: <Prints></Prints>
+            },
+            {
+                path: '/printDetails/:id',
+                element: <PrintDetails></PrintDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/printDetails/${params.id}`)
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/cart',
+                element: <Cart></Cart>
             },
             {
                 path: '/contact',

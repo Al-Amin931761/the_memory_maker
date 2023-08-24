@@ -2,8 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Photography from '../Photography/Photography';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
-import CustomerReviews from './CustomerReviews/CustomerReviews';
-import TravelDates from './TravelDates/TravelDates';
+import TravelDates from '../TravelDates/TravelDates';
 
 const Home = () => {
     return (
@@ -16,7 +15,6 @@ const Home = () => {
             </div>
             <Photography></Photography>
             <TravelDates></TravelDates>
-            <CustomerReviews></CustomerReviews>
         </div>
     );
 };

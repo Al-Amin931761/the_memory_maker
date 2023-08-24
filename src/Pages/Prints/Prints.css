@@ -1,0 +1,18 @@
+/* responsive */
+@media only screen and (max-width:991px) {
+    .prints-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        border: 2px dashed seagreen;
+        position: relative;
+    }
+}
+
+@media only screen and (min-width:992px) {
+    .prints-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border: 2px dashed seagreen;
+        position: relative;
+    }
+}

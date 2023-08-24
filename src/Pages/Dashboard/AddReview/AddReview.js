@@ -34,7 +34,6 @@ const AddReview = () => {
 
         const review = {
             name: user?.displayName,
-            image: user?.photoURL,
             email: user?.email,
             rating: rating,
             review: reviewRef.current.value,
@@ -60,7 +59,7 @@ const AddReview = () => {
                 if (data.acknowledged) {
                     toast.info("Review submitted successfully");
                     setTimeout(() => {
-                        navigate('/');
+                        navigate('/about');
                     }, 5000);
                 } else {
                     toast.error("Review was not successfully submitted");

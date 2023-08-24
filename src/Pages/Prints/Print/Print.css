@@ -1,0 +1,33 @@
+.print-container {
+    margin: 40px;
+    border: 2px solid red;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+
+.print-container:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.41);
+    -webkit-box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.41);
+    -moz-box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.41);
+}
+
+.print-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.print-image img {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-style: solid;
+    border-width: 15px;
+    border-top-color: lighten(#000, 20%);
+    border-right-color: lighten(#000, 0%);
+    border-bottom-color: lighten(#000, 20%);
+    border-left-color: lighten(#000, 0%);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .6);
+}

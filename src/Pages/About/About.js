@@ -1,6 +1,7 @@
 import React from 'react';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import image from '../../images/my-image.png';
+import CustomerReviews from './CustomerReviews/CustomerReviews';
 
 const About = () => {
     return (
@@ -16,6 +17,9 @@ const About = () => {
                 <p className='fs-3 text-center'>Having always enjoyed strategizing and crafting visual messaging which strike the emotions, my photography has to exude sophistication, personality and approachability. Clients need to be viewed as the experts in their field. Whether it be branding, product, headshot, or photo-journalism, I bring decades of knowledge and passion to assist a client's expectations and demands. Having an extensive history as an award-winning Art Director, I understand what visual direction any client needs to lead their market. I photograph fashion, personal, outdoor, birthday, kids, newborns & babies, commercial, product, e-commerce, and event photography, and more. </p>
             </div>
 
+            <div className='mt-5 border border-warning'>
+                <CustomerReviews></CustomerReviews>
+            </div>
         </div>
 
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import './TravelDates.css';
 import { FaCalendarAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
-import travelImage from '../../../../images/travel.png';
+import travelImage from '../../../images/travel.png';
 
 const TravelDates = () => {
     return (

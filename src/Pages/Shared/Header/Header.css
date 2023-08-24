@@ -22,6 +22,7 @@
 .logout-button {
     color: grey;
     transition: 0.5s;
+    margin-right: 20px;
 }
 
 .logout-button:hover {

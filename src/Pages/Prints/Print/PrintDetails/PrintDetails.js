@@ -5,28 +5,60 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import PageTitle from '../../../Shared/PageTitle/PageTitle';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../../firebase.init';
 
 const PrintDetails = () => {
+    const [user] = useAuthState(auth);
     const printData = useLoaderData();
     const { image, name, location } = printData;
     const [price, setPrice] = useState(150);
 
+    // price 
     const handleSize = (event) => {
-        setPrice(event.target.value);
-    }
-    console.log(price);
+        setPrice(parseInt(event.target.value));
+    };
 
+    // quantity 
     const quantityRef = useRef('');
     const handleSubmit = event => {
         event.preventDefault();
         const quantity = parseInt(quantityRef.current.value);
         if (quantity > 0) {
-            const totalPrice = quantity * price;
-            setPrice(totalPrice);
-        } else {
-            toast.error('Minimum quantity must be 1')
+            const order = {
+                image: image,
+                quantity: quantity
+            }
+            fetch(`http://localhost:5000/temporaryData/${user?.email}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json',
+                    name: name,
+                    price: price
+                },
+                body: JSON.stringify(order)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.upsertedCount > 0) {
+                        toast.info(`${name} - item added to cart`);
+                    } else if (data.modifiedCount > 0) {
+                        toast.info(`${name} - item quantities have been updated`);
+                    }
+                })
         }
-    }
+
+        // delete users temporary data
+        setTimeout(() => {
+            fetch(`http://localhost:5000/temporaryData/${user?.email}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    toast.error(`Your cart data has been deleted, please add to cart again`);
+                })
+        }, 86400000)
+    };
 
     return (
         <div className='common-styles'>
@@ -41,15 +73,15 @@ const PrintDetails = () => {
                     <div>
                         <h2 className='mb-3'>{name}</h2>
                         <p className='mb-3'><ImLocation2 />{location}</p>
-                        <h2 className='mb-3'>${price}</h2>
+                        <h2 className='mb-3'>{price}</h2>
 
-                        {/* size */}
-                        <FloatingLabel className='select-size mb-3' onChange={handleSize} controlId="floatingSelectGrid" label="Size & Medium ">
+                        {/* size & medium */}
+                        <FloatingLabel className='select-size p-0 mb-3' onChange={handleSize} controlId="floatingSelectGrid" label="Size & Medium">
                             <Form.Select aria-label="Floating label select example">
-                                <option value={150}>18" x 12" - Fine Art Print</option>
-                                <option value={270}>24" x 16" - Fine Art Print</option>
-                                <option value={420}>30" x 20" - Fine Art Print</option>
-                                <option value={600}>36" x 24" - Fine Art Print</option>
+                                <option value="150">18" x 12" - Fine Art Print</option>
+                                <option value="270">24" x 16" - Fine Art Print</option>
+                                <option value="420">30" x 20" - Fine Art Print</option>
+                                <option value="600">36" x 24" - Fine Art Print</option>
                             </Form.Select>
                         </FloatingLabel>
 
@@ -63,9 +95,9 @@ const PrintDetails = () => {
                         </form>
 
                         <div className='mt-3'>
-                            <p>Custom orders are available (preset size, archival paper, foamboard, framing, gallery wrap). Please <Link to='/contact'>contact me</Link>.</p>
+                            <p className='m-0'>Custom orders are available (preset size, archival paper, foamboard, framing, gallery wrap). Please <Link to='/contact'>contact me</Link>.</p>
 
-                            <p>All prints are made with Fine Art Luster paper, furnished in leading professional art printing laboratories. Prints are professionally packaged, handled, and shipped in a rolled tube. Delivery insurance is available.</p>
+                            <p className='mt-3 mb-0'>All prints are made with Fine Art Luster paper, furnished in leading professional art printing laboratories. Prints are professionally packaged, handled, and shipped in a rolled tube. Delivery insurance is available.</p>
                         </div>
                     </div>
                 </div>

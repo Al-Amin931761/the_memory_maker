@@ -1,11 +1,18 @@
-.print-details-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+@media only screen and (min-width:992px) {
+    .print-details-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
 }
 
-.select-size {
-    width: 250px;
+@media only screen and (max-width:991px) {
+    .print-details-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+        border: 1px solid red
+    }
 }
 
 .quantity-input {

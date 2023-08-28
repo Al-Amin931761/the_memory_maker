@@ -1,5 +1,6 @@
 import About from "../Pages/About/About";
 import Cart from "../Pages/Cart/Cart";
+import CustomerDetails from "../Pages/Cart/CustomerDetails/CustomerDetails";
 import Contact from "../Pages/Contact/Contact";
 import AddReview from "../Pages/Dashboard/AddReview/AddReview";
 import Bookings from "../Pages/Dashboard/Bookings/Bookings";
@@ -46,7 +47,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/printDetails/:id',
-                element: <PrintDetails></PrintDetails>,
+                element: <PrivateRoute><PrintDetails></PrintDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/printDetails/${params.id}`)
             },
             {
@@ -59,7 +60,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                element: <Cart></Cart>
+                element: <PrivateRoute><Cart></Cart></PrivateRoute>
+            },
+            {
+                path: '/customerDetails',
+                element: <PrivateRoute><CustomerDetails></CustomerDetails></PrivateRoute>
             },
             {
                 path: '/contact',

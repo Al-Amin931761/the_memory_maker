@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './Packages.css';
 import { FaCamera } from "react-icons/fa";
 import Package from './Package/Package';
+import Loading from '../Shared/Loading/Loading';
 
 const Packages = () => {
-
-    const [packages, setPackages] = useState([]);
-
     useEffect(() => {
         fetch("http://localhost:5000/packages")
             .then(res => res.json())
             .then(data => setPackages(data))
-    }, [])
+    }, []);
 
+    const [packages, setPackages] = useState([]);
+    if (packages.length === 0) {
+        return <Loading></Loading>;
+    };
 
     return (
         <div>

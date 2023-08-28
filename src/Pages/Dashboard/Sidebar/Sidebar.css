@@ -1,0 +1,6 @@
+.sidebar-button {
+    padding: 0;
+    position: fixed !important;
+    top: 79px;
+    background-color: transparent;
+}

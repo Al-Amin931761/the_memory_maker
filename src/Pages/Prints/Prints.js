@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Prints.css';
 import Print from './Print/Print';
 import PageTitle from '../Shared/PageTitle/PageTitle';
+import usePrints from '../../hooks/usePrints';
+import Loading from '../Shared/Loading/Loading';
 
 const Prints = () => {
-    const [prints, setPrints] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/prints`)
-            .then(res => res.json())
-            .then(data => setPrints(data))
-    }, [prints])
+    const [prints, setPrints] = usePrints();
+    if (prints.length === 0) {
+        return <Loading></Loading>;
+    }
+
     return (
         <div>
             <PageTitle title="Prints"></PageTitle>

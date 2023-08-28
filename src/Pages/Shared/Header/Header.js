@@ -7,13 +7,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { GiShoppingCart } from 'react-icons/gi';
+import useShoppingCart from '../../../hooks/useShoppingCart';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const [cartData, setCartData] = useShoppingCart();
+
     const handleLogOut = () => {
         localStorage.removeItem('accessToken');
         signOut(auth);
-    }
+    };
+
+    // print quantity 
+    const quantityArray = cartData.map(data => data.quantity);
+    let printQuantity = 0;
+    for (const quantity of quantityArray) {
+        printQuantity = quantity + printQuantity;
+    };
 
     return (
         <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -41,7 +51,8 @@ const Header = () => {
                         {
                             user ? <span className='logout-button' onClick={handleLogOut}>Log Out</span> : <NavLink to="/login" className="link-styles">Login</NavLink>
                         }
-                        <NavLink to="/cart" className="link-styles"><GiShoppingCart className='fs-3 pb-1' /></NavLink>
+                        <NavLink to="/cart" className="link-styles cart-icon"><GiShoppingCart className='fs-3 pb-1' />
+                            <span className='quantity'>{printQuantity}</span></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

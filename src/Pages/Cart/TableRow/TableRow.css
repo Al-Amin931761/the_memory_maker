@@ -1,0 +1,14 @@
+.table-row {
+    height: 80px !important;
+}
+
+.select-size-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-size {
+    width: 250px;
+}

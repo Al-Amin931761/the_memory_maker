@@ -28,3 +28,14 @@
 .logout-button:hover {
     color: white;
 }
+
+/* cart icon */
+.cart-icon {
+    position: relative;
+}
+
+.quantity {
+    font-size: 10px;
+    position: absolute;
+    top: 0px;
+}

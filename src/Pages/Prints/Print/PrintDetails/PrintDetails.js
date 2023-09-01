@@ -14,6 +14,18 @@ const PrintDetails = () => {
     const { image, name, location } = printData;
     const [price, setPrice] = useState(150);
 
+    let sizeAndMedium;
+    if (price === 150) {
+        sizeAndMedium = `18" x 12" - Fine Art Print`;
+    } else if (price === 270) {
+        sizeAndMedium = `24" x 16" - Fine Art Print`;
+    }
+    else if (price === 420) {
+        sizeAndMedium = `30" x 20" - Fine Art Print`;
+    } else {
+        sizeAndMedium = `36" x 24" - Fine Art Print`;
+    }
+
     // price 
     const handleSize = (event) => {
         setPrice(parseInt(event.target.value));
@@ -27,7 +39,8 @@ const PrintDetails = () => {
         if (quantity > 0) {
             const order = {
                 image: image,
-                quantity: quantity
+                quantity: quantity,
+                sizeAndMedium: sizeAndMedium
             }
             fetch(`http://localhost:5000/temporaryData/${user?.email}`, {
                 method: 'PUT',

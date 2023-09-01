@@ -1,29 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './TableRow.css';
+import { toast } from 'react-toastify';
 
 const TableRow = ({ data, index }) => {
-    const { image, name, price, _id, quantity } = data;
+    const { image, name, price, _id, quantity, sizeAndMedium } = data;
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/temporaryCartData/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.info(`${name} - has been removed successfully.`)
+                }
+            });
     };
-
-
-    let sizeAndMedium;
-    if (parseInt(price) === 150) {
-        sizeAndMedium = `18" x 12" - Fine Art Print`;
-    } else if (parseInt(price) === 270) {
-        sizeAndMedium = `24" x 16" - Fine Art Print`;
-    }
-    else if (parseInt(price) === 420) {
-        sizeAndMedium = `30" x 20" - Fine Art Print`;
-    } else {
-        sizeAndMedium = `36" x 24" - Fine Art Print`;
-    }
 
     return (
         <>

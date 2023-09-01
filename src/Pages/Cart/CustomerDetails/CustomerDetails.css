@@ -1,0 +1,25 @@
+/* responsive */
+@media only screen and (max-width: 768px) {
+    .customer-details-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 40px;
+    }
+
+    .customer-details-container form {
+        order: 2;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .customer-details-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
+    }
+
+    .order-summary div {
+        position: sticky;
+        top: 100px;
+    }
+}

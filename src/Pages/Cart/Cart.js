@@ -8,19 +8,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 
 const Cart = () => {
-    const [cartData, setCartData] = useShoppingCart();
-
-    // subtotal 
-    const subtotalArray = cartData.map(data => parseInt(data.price) * data.quantity);
-    let subTotal = 0;
-    for (let amount of subtotalArray) {
-        subTotal = amount + subTotal;
-    };
-
-    // shipping, tax and grand total calculation 
-    let shipping = 50;
-    let tax = subTotal * 0.05;
-    const grandTotal = subTotal + tax + shipping;
+    const { cartData, subTotal, tax, shipping, grandTotal } = useShoppingCart();
 
     // cart 
     let shoppingCart;
@@ -78,7 +66,7 @@ const Cart = () => {
                         <td></td>
                         <td></td>
                         <td className='text-end fs-4'>Grand Total:</td>
-                        <td className='text-center fs-4'>{grandTotal}</td>
+                        <td className='text-center fs-4'>${grandTotal}</td>
                     </tr>
                 </tbody>
             </Table>

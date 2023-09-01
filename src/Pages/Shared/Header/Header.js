@@ -11,18 +11,11 @@ import useShoppingCart from '../../../hooks/useShoppingCart';
 
 const Header = () => {
     const [user] = useAuthState(auth);
-    const [cartData, setCartData] = useShoppingCart();
+    const { printQuantity } = useShoppingCart();
 
     const handleLogOut = () => {
         localStorage.removeItem('accessToken');
         signOut(auth);
-    };
-
-    // print quantity 
-    const quantityArray = cartData.map(data => data.quantity);
-    let printQuantity = 0;
-    for (const quantity of quantityArray) {
-        printQuantity = quantity + printQuantity;
     };
 
     return (

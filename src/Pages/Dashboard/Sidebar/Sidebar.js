@@ -18,8 +18,9 @@ const Sidebar = () => {
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
                                     <NavLink to="/dashboard/myProfile" className="link-styles mt-2">My Profile</NavLink>
                                     <NavLink to="/dashboard/addReview" className="link-styles my-2">Add Review</NavLink>
-                                    <NavLink to="/dashboard/myBookings" className="link-styles">My Bookings</NavLink>
-                                    <NavLink to="/dashboard/bookings" className="link-styles my-2">Bookings</NavLink>
+                                    <NavLink to="/dashboard/addPrint" className="link-styles">Add Print</NavLink>
+                                    <NavLink to="/dashboard/myOrders" className="link-styles my-2">My Orders</NavLink>
+                                    <NavLink to="/dashboard/orders" className="link-styles">Orders</NavLink>
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

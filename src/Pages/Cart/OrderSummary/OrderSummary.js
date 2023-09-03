@@ -1,8 +1,13 @@
 import React from 'react';
 import useShoppingCart from '../../../hooks/useShoppingCart';
+import Loading from '../../Shared/Loading/Loading';
 
 const OrderSummary = () => {
     const { cartData, subTotal, grandTotal, tax, shipping } = useShoppingCart();
+
+    if (cartData.length === 0) {
+        return <Loading></Loading>
+    }
     return (
         <div className='w-100 shadow-sm rounded p-3'>
             <h4 className='second-font text-center'>Order Summary</h4>

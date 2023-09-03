@@ -1,5 +1,6 @@
 import About from "../Pages/About/About";
 import Cart from "../Pages/Cart/Cart";
+import Checkout from "../Pages/Cart/Checkout/Checkout";
 import CustomerDetails from "../Pages/Cart/CustomerDetails/CustomerDetails";
 import Contact from "../Pages/Contact/Contact";
 import AddPrint from "../Pages/Dashboard/AddPrint/AddPrint";
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
             {
                 path: '/customerDetails',
                 element: <PrivateRoute><CustomerDetails></CustomerDetails></PrivateRoute>
+            },
+            {
+                path: '/checkout',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
             },
             {
                 path: '/contact',

@@ -28,7 +28,7 @@ const useShoppingCart = () => {
     // shipping, tax and grand total calculation 
     let shipping = 50;
     let tax = subTotal * 0.05;
-    let grandTotal = subTotal + tax + shipping;
+    let grandTotal = parseFloat((subTotal + tax + shipping).toFixed(2));
 
     return { cartData, setCartData, printQuantity, subTotal, grandTotal, tax, shipping };
 };

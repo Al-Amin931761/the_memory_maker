@@ -2,12 +2,8 @@ import React from 'react';
 import './Dashboard.css';
 import Sidebar from './Sidebar/Sidebar';
 import PageTitle from '../Shared/PageTitle/PageTitle';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 
 const Dashboard = () => {
-    const [user] = useAuthState(auth);
-    console.log(user);
     return (
         <div className='vh-100 common-styles'>
             <PageTitle title="Dashboard"></PageTitle>

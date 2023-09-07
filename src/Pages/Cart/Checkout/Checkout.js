@@ -4,21 +4,23 @@ import CheckoutForm from './CheckoutForm/CheckoutForm';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import OrderSummary from '../OrderSummary/OrderSummary';
+import './Checkout.css';
 
 const Checkout = () => {
     const stripePromise = loadStripe('pk_test_51L4PWfLjrmUqnITL4TDtVJQQb9fne5taAj6AYMgv1WRYo6WqERdQ2bxlLgMjNTV3HQQq2fAcBpDPi4GbYkLLlQCa00Tltuz0Tl');
 
     return (
-        <div>
+        <div className='common-styles'>
             <PageTitle title='Checkout'></PageTitle>
-            <h2 className='text-center'>Checkout page</h2>
 
-            <div>
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm />
-                </Elements>
+            <div className='checkout'>
+                <div className='checkout-form'>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm />
+                    </Elements>
+                </div>
 
-                <div>
+                <div className='summary'>
                     <OrderSummary></OrderSummary>
                 </div>
             </div>

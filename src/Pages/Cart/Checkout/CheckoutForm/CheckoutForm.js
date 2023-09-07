@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect, useState } from 'react';
 import { CUSTOMER_INFORMATION_CONTEXT } from '../../../../context/CustomerInformation';
 import useShoppingCart from '../../../../hooks/useShoppingCart';
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import auth from '../../../../firebase.init';
 import { toast } from 'react-toastify';
@@ -17,6 +17,11 @@ const CheckoutForm = () => {
     const [clientSecret, setClientSecret] = useState("");
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
+
+    // date and time 
+    const today = new Date();
+    const fullDate = today.toLocaleDateString();
+    const time = today.toLocaleTimeString();
 
     const navigate = useNavigate('');
     useEffect(() => {
@@ -93,7 +98,8 @@ const CheckoutForm = () => {
             details.transactionId = paymentIntent.id;
             details.amount = grandTotal;
             details.order = cartData;
-            details.date = new Date();
+            details.fullDate = fullDate;
+            details.time = time;
             details.status = 'Pending'
 
             // save the order to the database 
@@ -118,7 +124,7 @@ const CheckoutForm = () => {
                             })
 
                         setTimeout(() => {
-                            navigate('/myOrders');
+                            navigate('/dashboard/myOrders');
                         }, 10000);
                     }
                 })
@@ -126,32 +132,29 @@ const CheckoutForm = () => {
     };
 
     return (
-        <>
-            <form className='p-2 border border-2 border-primary' onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
-                                },
-                            },
-                            invalid: {
-                                color: '#9e2146',
+        <form className='px-2 py-1 w-100' onSubmit={handleSubmit}>
+            <CardElement className='w-100'
+                options={{
+                    style: {
+                        base: {
+                            fontSize: '16px',
+                            color: '#424770',
+                            '::placeholder': {
+                                color: '#aab7c4',
                             },
                         },
-                    }}
-                />
-                <button className='btn btn-outline-dark mt-3' type="submit" disabled={!stripe || !clientSecret || processing}>
-                    Pay
-                </button>
-            </form>
-
-            {cardError && <p className='text-danger'>{cardError}</p>}
-            {transactionId && <p className='text-primary'>Transaction Id: {transactionId}</p>}
-        </>
+                        invalid: {
+                            color: '#9e2146',
+                        },
+                    },
+                }}
+            />
+            <button className='btn btn-outline-dark mt-2' type="submit" disabled={!stripe || !clientSecret || processing}>
+                Pay
+            </button>
+            {cardError && <p className='text-danger my-2'>{cardError}</p>}
+            {transactionId && <p className='text-primary my-2'>Transaction Id: {transactionId}</p>}
+        </form>
     );
 };
 

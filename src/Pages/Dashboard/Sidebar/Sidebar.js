@@ -12,7 +12,7 @@ const Sidebar = () => {
                         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                         <Navbar.Offcanvas id={`offcanvasNavbar-expand-${expand}`} aria-labelledby={`offcanvasDarkNavbarLabel-expand-${expand}`} placement="end">
                             <Offcanvas.Header closeButton style={{ backgroundColor: '#F8FCFB', padding: '18px' }}>
-                                <Offcanvas.Title className='border' id={`offcanvasDarkNavbarLabel-expand-${expand}`}>Dashboard</Offcanvas.Title>
+                                <Offcanvas.Title id={`offcanvasDarkNavbarLabel-expand-${expand}`}>Dashboard</Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body className='pt-0 bg-dark'>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">

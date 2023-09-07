@@ -90,7 +90,7 @@ const MyProfile = () => {
         if (newPassword === confirmNewPassword) {
             const success = await updatePassword(confirmNewPassword);
             if (success === undefined) {
-                toast.info(`Password updated successfully`);
+                toast.success(`Password updated successfully`);
             }
         } else {
             toast.error("Passwords did not match. Try again.");

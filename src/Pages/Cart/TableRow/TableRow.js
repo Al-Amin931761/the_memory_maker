@@ -12,7 +12,7 @@ const TableRow = ({ data, index }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
-                    toast.info(`${name} - has been removed successfully.`)
+                    toast.success(`${name} - has been removed successfully.`)
                 }
             });
     };

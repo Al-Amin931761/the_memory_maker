@@ -57,7 +57,7 @@ const AddReview = () => {
             })
             .then(data => {
                 if (data.acknowledged) {
-                    toast.info("Review submitted successfully");
+                    toast.success("Review submitted successfully");
                     setTimeout(() => {
                         navigate('/about');
                     }, 5000);

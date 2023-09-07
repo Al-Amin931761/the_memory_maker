@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Order = ({ data, index, id }) => {
-    const { name, email, country, address, city, state, postalCode, phoneNumber, transactionId, amount, order, fullDate, time, status, _id } = data;
     const [orderStatus, setOrderStatus] = useState(false);
+    const { name, email, country, address, city, state, postalCode, phoneNumber, transactionId, amount, order, fullDate, time, status, _id } = data;
 
+    // update status 
     const navigate = useNavigate('');
     const handleStatus = (id) => {
-        console.log(id);
         fetch(`http://localhost:5000/orders/${id}`, {
             method: "PATCH",
             headers: {

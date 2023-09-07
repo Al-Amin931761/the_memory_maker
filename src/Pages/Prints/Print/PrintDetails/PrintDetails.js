@@ -54,9 +54,9 @@ const PrintDetails = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.upsertedCount > 0) {
-                        toast.info(`${name} - item added to cart`);
+                        toast.success(`${name} - item added to cart`);
                     } else if (data.modifiedCount > 0) {
-                        toast.info(`${name} - item quantities have been updated`);
+                        toast.success(`${name} - item quantities have been updated`);
                     }
                 })
         }

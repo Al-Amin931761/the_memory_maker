@@ -113,7 +113,7 @@ const CheckoutForm = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        toast.info('Payment successful!');
+                        toast.success('Payment successful!');
 
                         fetch(`http://localhost:5000/temporaryData/${details.email}`, {
                             method: 'DELETE',

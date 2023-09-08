@@ -4,7 +4,7 @@ import auth from '../../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Order = ({ data, index, id }) => {
+const Order = ({ data, index }) => {
     const [orderStatus, setOrderStatus] = useState(false);
     const { name, email, country, address, city, state, postalCode, phoneNumber, transactionId, amount, order, fullDate, time, status, _id } = data;
 

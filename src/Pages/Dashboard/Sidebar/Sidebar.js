@@ -27,6 +27,7 @@ const Sidebar = () => {
                                         user?.email === 'alamin931761@gmail.com' && <>
                                             <NavLink to="/dashboard/addPrint" className="link-styles my-2">Add Print</NavLink>
                                             <NavLink to="/dashboard/orders" className="link-styles">Orders</NavLink>
+                                            <NavLink to="/dashboard/managePrints" className="link-styles mt-2">Manage Prints</NavLink>
                                         </>
                                     }
 

@@ -90,7 +90,7 @@ const PrintDetails = () => {
 
                         {/* size & medium */}
                         <FloatingLabel className='select-size p-0 mb-3' onChange={handleSize} controlId="floatingSelectGrid" label="Size & Medium">
-                            <Form.Select aria-label="Floating label select example">
+                            <Form.Select className='border border-dark' aria-label="Floating label select example">
                                 <option value="150">18" x 12" - Fine Art Print</option>
                                 <option value="270">24" x 16" - Fine Art Print</option>
                                 <option value="420">30" x 20" - Fine Art Print</option>
@@ -101,7 +101,7 @@ const PrintDetails = () => {
                         {/* quantity */}
                         <form onSubmit={handleSubmit}>
                             <FloatingLabel controlId="floatingInputGrid" label="Quantity" className='quantity-input mb-3'>
-                                <Form.Control ref={quantityRef} type="number" placeholder="Quantity" required />
+                                <Form.Control className='border border-dark' ref={quantityRef} type="number" placeholder="Quantity" required />
                             </FloatingLabel>
 
                             <Button variant="outline-dark" type="submit">Add To Cart</Button>

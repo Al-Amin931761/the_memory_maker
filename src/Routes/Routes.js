@@ -6,6 +6,7 @@ import Contact from "../Pages/Contact/Contact";
 import AddPrint from "../Pages/Dashboard/AddPrint/AddPrint";
 import AddReview from "../Pages/Dashboard/AddReview/AddReview";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import ManagePrints from "../Pages/Dashboard/ManagePrints/ManagePrints";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import MyProfile from "../Pages/Dashboard/MyProfile/MyProfile";
 import Orders from "../Pages/Dashboard/Orders/Orders";
@@ -27,84 +28,88 @@ const { createBrowserRouter } = require("react-router-dom");
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <Main></Main>,
+        element: <Main />,
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home />
             },
             {
                 path: '/packages',
-                element: <Packages></Packages>
+                element: <Packages />
             },
             {
                 path: '/about',
-                element: <About></About>
+                element: <About />
             },
             {
                 path: '/faq',
-                element: <FAQ></FAQ>
+                element: <FAQ />
             },
             {
                 path: '/prints',
-                element: <Prints></Prints>
+                element: <Prints />
             },
             {
                 path: '/printDetails/:id',
-                element: <PrivateRoute><PrintDetails></PrintDetails></PrivateRoute>,
+                element: <PrivateRoute><PrintDetails /></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/printDetails/${params.id}`)
             },
             {
                 path: '/login',
-                element: <Login></Login>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <Register />
             },
             {
                 path: '/cart',
-                element: <PrivateRoute><Cart></Cart></PrivateRoute>
+                element: <PrivateRoute><Cart /></PrivateRoute>
             },
             {
                 path: '/customerDetails',
-                element: <PrivateRoute><CustomerDetails></CustomerDetails></PrivateRoute>
+                element: <PrivateRoute><CustomerDetails /></PrivateRoute>
             },
             {
                 path: '/checkout',
-                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
+                element: <PrivateRoute><Checkout /></PrivateRoute>
             },
             {
                 path: '/contact',
-                element: <Contact></Contact>
+                element: <Contact />
             },
             {
                 path: '/dashboard',
-                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+                element: <PrivateRoute><Dashboard /></PrivateRoute>
             },
             {
                 path: '/dashboard/myProfile',
-                element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+                element: <PrivateRoute><MyProfile /></PrivateRoute>
             },
             {
                 path: '/dashboard/addReview',
-                element: <PrivateRoute><RequireUser><AddReview></AddReview></RequireUser></PrivateRoute>
+                element: <PrivateRoute><RequireUser><AddReview /></RequireUser></PrivateRoute>
             },
             {
                 path: '/dashboard/addPrint',
-                element: <PrivateRoute><RequireOwner><AddPrint></AddPrint></RequireOwner></PrivateRoute>
+                element: <PrivateRoute><RequireOwner><AddPrint /></RequireOwner></PrivateRoute>
             },
             {
                 path: '/dashboard/myOrders',
-                element: <PrivateRoute><RequireUser><MyOrders></MyOrders></RequireUser></PrivateRoute>
+                element: <PrivateRoute><RequireUser><MyOrders /></RequireUser></PrivateRoute>
             },
             {
                 path: '/dashboard/orders',
                 element: <PrivateRoute><RequireOwner><Orders></Orders></RequireOwner></PrivateRoute>
             },
             {
+                path: '/dashboard/managePrints',
+                element: <PrivateRoute><RequireOwner><ManagePrints /></RequireOwner></PrivateRoute>
+            },
+            {
                 path: '*',
-                element: <NotFound></NotFound>
+                element: <NotFound />
             },
         ]
     }

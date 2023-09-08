@@ -172,32 +172,32 @@ const MyProfile = () => {
                         <form onSubmit={handleUpdateProfile}>
                             {/* name */}
                             <div className="form-floating">
-                                <input value={user.displayName} type="text" className="form-control" id="floatingInput" placeholder="Name" readOnly />
-                                <label htmlFor="floatingInput">Name</label>
+                                <input value={user.displayName} type="text" className="form-control" id="name" placeholder="Name" readOnly />
+                                <label htmlFor="name">Name</label>
                             </div>
 
                             {/* image URL */}
                             <div className="form-floating my-3">
-                                <input ref={imageRef} type="text" className="form-control" id="floatingInput" placeholder="Image URL" required />
-                                <label htmlFor="floatingInput">Image URL</label>
+                                <input ref={imageRef} type="text" className="form-control" id="image-url" placeholder="Image URL" required />
+                                <label htmlFor="image-url">Image URL</label>
                             </div>
 
                             {/* email */}
                             <div className="form-floating">
-                                <input value={user.email} type="email" className="form-control" id="floatingInput" placeholder="Email" readOnly />
-                                <label htmlFor="floatingInput">Email Address</label>
+                                <input value={user.email} type="email" className="form-control" id="email-address" placeholder="Email" readOnly />
+                                <label htmlFor="email-address">Email Address</label>
                             </div>
 
                             {/* Phone Number*/}
                             <div className="form-floating my-3">
-                                <input ref={phoneNumberRef} type="text" className="form-control" id="floatingInput" placeholder="Phone Number" required />
-                                <label htmlFor="floatingInput">Phone Number</label>
+                                <input ref={phoneNumberRef} type="text" className="form-control" id="phone-number" placeholder="Phone Number" required />
+                                <label htmlFor="phone-number">Phone Number</label>
                             </div>
 
                             {/* Address */}
                             <div className="form-floating">
-                                <input ref={addressRef} type="text" className="form-control" id="floatingInput" placeholder="Address" required />
-                                <label htmlFor="floatingInput">Address</label>
+                                <input ref={addressRef} type="text" className="form-control" id="address" placeholder="Address" required />
+                                <label htmlFor="address">Address</label>
                             </div>
 
                             <Button className='my-3' variant="outline-dark" type="submit">

@@ -48,8 +48,8 @@ const Contact = () => {
 
                     {/* message */}
                     <div className="form-floating my-3 message">
-                        <textarea ref={messageRef} className="form-control" placeholder="Message" id="review" required />
-                        <label htmlFor="review">Message</label>
+                        <textarea ref={messageRef} className="form-control" placeholder="Message" id="message" required />
+                        <label htmlFor="message">Message</label>
                     </div>
                     <Button className='py-2 submit-button' variant="outline-dark" type="submit">Submit</Button>
                 </form>

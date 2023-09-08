@@ -61,7 +61,7 @@ const Orders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map((data, index) => <Order key={data._id} data={data} index={index} id={orders._id}></Order>)
+                            orders.map((data, index) => <Order key={data._id} data={data} index={index}></Order>)
                         }
                     </tbody>
                 </Table>

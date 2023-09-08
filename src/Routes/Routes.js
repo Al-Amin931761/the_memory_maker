@@ -19,6 +19,8 @@ import PrintDetails from "../Pages/Prints/Print/PrintDetails/PrintDetails";
 import Prints from "../Pages/Prints/Prints";
 import Main from "../Pages/layout/Main";
 import PrivateRoute from "./PrivateRoute";
+import RequireOwner from "./RequireOwner";
+import RequireUser from "./RequireUser";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -86,19 +88,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/addReview',
-                element: <PrivateRoute><AddReview></AddReview></PrivateRoute>
+                element: <PrivateRoute><RequireUser><AddReview></AddReview></RequireUser></PrivateRoute>
             },
             {
                 path: '/dashboard/addPrint',
-                element: <PrivateRoute><AddPrint></AddPrint></PrivateRoute>
+                element: <PrivateRoute><RequireOwner><AddPrint></AddPrint></RequireOwner></PrivateRoute>
             },
             {
                 path: '/dashboard/myOrders',
-                element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+                element: <PrivateRoute><RequireUser><MyOrders></MyOrders></RequireUser></PrivateRoute>
             },
             {
                 path: '/dashboard/orders',
-                element: <PrivateRoute><Orders></Orders></PrivateRoute>
+                element: <PrivateRoute><RequireOwner><Orders></Orders></RequireOwner></PrivateRoute>
             },
             {
                 path: '*',

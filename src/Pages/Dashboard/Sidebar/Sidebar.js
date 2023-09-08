@@ -2,8 +2,11 @@ import React from 'react';
 import './Sidebar.css';
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Sidebar = () => {
+    const [user] = useAuthState(auth);
     return (
         <div>
             {[false].map((expand) => (
@@ -16,11 +19,25 @@ const Sidebar = () => {
                             </Offcanvas.Header>
                             <Offcanvas.Body className='pt-0 bg-dark'>
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                                    {/* common */}
                                     <NavLink to="/dashboard/myProfile" className="link-styles mt-2">My Profile</NavLink>
-                                    <NavLink to="/dashboard/addReview" className="link-styles my-2">Add Review</NavLink>
-                                    <NavLink to="/dashboard/addPrint" className="link-styles">Add Print</NavLink>
-                                    <NavLink to="/dashboard/myOrders" className="link-styles my-2">My Orders</NavLink>
-                                    <NavLink to="/dashboard/orders" className="link-styles">Orders</NavLink>
+
+                                    {/* owner */}
+                                    {
+                                        user?.email === 'alamin931761@gmail.com' && <>
+                                            <NavLink to="/dashboard/addPrint" className="link-styles my-2">Add Print</NavLink>
+                                            <NavLink to="/dashboard/orders" className="link-styles">Orders</NavLink>
+                                        </>
+                                    }
+
+                                    {/* user */}
+                                    {
+                                        user?.email !== 'alamin931761@gmail.com' && <>
+                                            <NavLink to="/dashboard/addReview" className="link-styles my-2">Add Review</NavLink>
+                                            <NavLink to="/dashboard/myOrders" className="link-styles">My Orders</NavLink>
+                                        </>
+                                    }
+
                                 </Nav>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

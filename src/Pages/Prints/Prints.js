@@ -8,7 +8,7 @@ import { FloatingLabel, Form } from 'react-bootstrap';
 const Prints = () => {
     const [prints, setPrints] = useState([]);
     const [count, setCount] = useState(0);
-    const [printPerPage, setPrintPerPage] = useState(3)
+    const [printPerPage, setPrintPerPage] = useState(6)
     const [currentPage, setCurrentPage] = useState(0);
 
     // load prints data 
@@ -19,7 +19,7 @@ const Prints = () => {
                 setPrints(data.prints)
                 setCount(data.count);
             })
-    }, [currentPage, printPerPage, prints])
+    }, [currentPage, printPerPage])
 
 
     if (prints.length === 0) {
@@ -61,7 +61,6 @@ const Prints = () => {
 
                 <FloatingLabel style={{ width: '90px' }} className='p-0 ms-2 ' onChange={handleSelectChange} controlId="floatingSelectGrid" label="Show">
                     <Form.Select className='border border-dark' aria-label="Floating label select example">
-                        <option className='text-center' value="3">3</option>
                         <option className='text-center' value="6">6</option>
                         <option className='text-center' value="9">9</option>
                         <option className='text-center' value="12">12</option>

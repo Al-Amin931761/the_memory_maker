@@ -7,11 +7,12 @@ import { toast } from 'react-toastify';
 import PageTitle from '../../../Shared/PageTitle/PageTitle';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../../firebase.init';
+import RandomPrints from './RandomPrints/RandomPrints';
 
 const PrintDetails = () => {
     const [user] = useAuthState(auth);
     const printData = useLoaderData();
-    const { image, name, location } = printData;
+    const { image, name, location, _id } = printData;
     const [price, setPrice] = useState(150);
 
     let sizeAndMedium;
@@ -114,6 +115,11 @@ const PrintDetails = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* random prints */}
+            <div className='mt-5'>
+                <RandomPrints id={_id} />
             </div>
         </div>
     );

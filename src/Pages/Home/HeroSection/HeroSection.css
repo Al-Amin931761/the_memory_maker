@@ -1,0 +1,20 @@
+.hero-container {
+    position: relative;
+}
+
+.hero-contents {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.contents {
+    text-align: center;
+    color: black;
+    background-color: #f8fcfb7f;
+    padding: 5px;
+    width: 98vw;
+    font-size: 4.2vw;
+    font-family: 'Old Standard TT', serif;
+}

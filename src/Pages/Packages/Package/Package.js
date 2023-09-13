@@ -7,7 +7,7 @@ import { BsArrowRight } from 'react-icons/bs';
 const Package = ({ data }) => {
     const { name, price, picture, description } = data;
     return (
-        <div className='package shadow-lg'>
+        <div className='package shadow-lg common-hover-effect'>
             <img width={290} src={picture} alt="" />
             <h2 className='second-font'>{name}</h2>
             <h4>{price}</h4>

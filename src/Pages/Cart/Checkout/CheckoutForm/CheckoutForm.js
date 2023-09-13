@@ -132,6 +132,7 @@ const CheckoutForm = () => {
 
                         setTimeout(() => {
                             navigate('/dashboard/myOrders');
+                            setDetails({});
                         }, 10000);
                     }
                 })
@@ -168,14 +169,14 @@ const CheckoutForm = () => {
                     Pay
                 </button>
                 {cardError && <p className='text-danger my-2'>{cardError}</p>}
-                {transactionId && <p className='text-primary my-2'>Transaction Id: {transactionId}</p>}
+                {transactionId && <p className='my-2'>Transaction Id: <span className='text-primary'>{transactionId}</span></p>}
             </form>
 
 
             {/* terms and refund policy modal */}
             <Modal show={showDeleteModal} onHide={ModalClose} backdrop="static" keyboard={false} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Returns & Refunds Policy</Modal.Title>
+                    <Modal.Title className='second-font'>Returns & Refunds Policy</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <p>Thank you for shopping online at my website! If you are not fully satisfied with your purchase, I'm here to help.</p>
@@ -199,7 +200,7 @@ const CheckoutForm = () => {
 
                     <div>
                         <h5>Shipping Costs</h5>
-                        <p>You will be responsible for paying for the shipping costs for returning your item. The shipping costs you paid when you ordered the item are non-­refundable; and should the shipping costs be free when you ordered the item, the related shipping costs of such will be deducted from the refund (the receipt of such shipping costs shall be provided to you as proof).</p>
+                        <p>You will be responsible for paying for the shipping costs for returning your item. The shipping costs you paid when you ordered the item are non-refundable; and should the shipping costs be free when you ordered the item, the related shipping costs of such will be deducted from the refund (the receipt of such shipping costs shall be provided to you as proof).</p>
                     </div>
 
                     <div>

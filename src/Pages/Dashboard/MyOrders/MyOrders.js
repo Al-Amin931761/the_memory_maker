@@ -29,18 +29,18 @@ const MyOrders = () => {
                 return res.json()
             })
             .then(data => setMyOrders(data))
-    }, [user?.email, navigate]);
+    }, [user?.email, navigate, myOrders]);
 
     return (
         <div className='common-styles'>
             <PageTitle title='My Orders'></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin second-font'>My Orders ({myOrders?.length})</h2>
+                <h1 className='title-margin second-font fw-bold mb-3'>My Orders ({myOrders?.length})</h1>
             </div>
 
-            <div className='mt-5'>
-                <Table responsive bordered hover>
+            <div>
+                <Table responsive bordered hover className='mb-0'>
                     <thead>
                         <tr>
                             <th></th>

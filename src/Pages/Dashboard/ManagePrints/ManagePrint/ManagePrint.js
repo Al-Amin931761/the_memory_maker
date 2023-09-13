@@ -112,7 +112,7 @@ const ManagePrint = ({ data, index }) => {
             {/*edit modal */}
             <Modal show={showEditModal} onHide={editModalClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{name}</Modal.Title>
+                    <Modal.Title className='second-font'>{name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handleSubmit}>
@@ -140,9 +140,9 @@ const ManagePrint = ({ data, index }) => {
             {/* delete modal */}
             <Modal show={showDeleteModal} onHide={deleteModalClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{name}</Modal.Title>
+                    <Modal.Title className='second-font'>{name}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className='fs-5'>Are you sure to delete <span className='text-danger'>{name}</span>?</Modal.Body>
+                <Modal.Body className='fs-5'>Are you sure to delete <span className='text-danger second-font'>{name}</span>?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="outline-dark" onClick={deleteModalClose}>Close</Button>
                     <Button variant="outline-danger" onClick={handleDeletePrint}>Delete</Button>

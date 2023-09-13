@@ -7,6 +7,7 @@ import { CUSTOMER_INFORMATION_CONTEXT } from '../../../context/CustomerInformati
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import './CustomerDetails.css';
 import OrderSummary from '../OrderSummary/OrderSummary';
+import { toast } from 'react-toastify';
 
 const CustomerDetails = () => {
     const [user] = useAuthState(auth);
@@ -40,12 +41,14 @@ const CustomerDetails = () => {
             phoneNumber: phoneNumberRef.current.value
         }
         setDetails(customerInfo);
+        event.target.reset();
+        toast.success('Details submitted successfully');
     };
 
     return (
         <div className='common-styles'>
             <PageTitle title="Customer Details"></PageTitle>
-            <h2 className="second-font text-center">Customer Details</h2>
+            <h1 className="second-font text-center fw-bold mb-3">Customer Details</h1>
 
             <div className='customer-details-container'>
                 <form onSubmit={handleCustomerDetails}>
@@ -106,7 +109,7 @@ const CustomerDetails = () => {
                 </div>
             </div>
 
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center mt-3'>
                 {button}
             </div >
         </div >

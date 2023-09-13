@@ -6,7 +6,11 @@
     }
 
     .review {
-        margin: 25px;
+        margin: 0 30px 30px 30px;
+    }
+
+    .review:hover {
+        margin: 0 30px 30px 30px;
     }
 }
 
@@ -17,6 +21,6 @@
     }
 
     .review {
-        margin: 30px;
+        margin: 0 30px 30px 30px;
     }
 }

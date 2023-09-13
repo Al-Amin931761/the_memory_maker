@@ -10,7 +10,7 @@ const OrderSummary = () => {
     }
     return (
         <div className='w-100 shadow-sm rounded p-3'>
-            <h4 className='second-font text-center'>Order Summary</h4>
+            <h4 className='second-font text-center mb-3'>Order Summary</h4>
             {
                 cartData.map(data => <div key={data._id} className='d-flex align-items-center justify-content-between'>
                     <div className='d-flex align-items-center p-1'>

@@ -16,7 +16,7 @@ import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Login/Register/Register";
 import NotFound from "../Pages/NotFound/NotFound";
 import Packages from "../Pages/Packages/Packages";
-import PrintDetails from "../Pages/Prints/Print/PrintDetails/PrintDetails";
+import PrintDetails from "../Pages/Prints/PrintDetails/PrintDetails";
 import Prints from "../Pages/Prints/Prints";
 import Main from "../Pages/layout/Main";
 import PrivateRoute from "./PrivateRoute";

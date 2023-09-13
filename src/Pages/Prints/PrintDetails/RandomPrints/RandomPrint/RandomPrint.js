@@ -8,9 +8,9 @@ const RandomPrint = ({ data }) => {
         navigate(`/printDetails/${_id}`);
     }
     return (
-        <div className='print-container border border-2 rounded-bottom' onClick={handleNavigate}>
+        <div className='print-container common-hover-effect border border-2 rounded-bottom' onClick={handleNavigate}>
             <div className='print-image'>
-                <img src={image} alt="" />
+                <img src={image} alt={name} />
             </div>
             <div className='mt-2'>
                 <p className='m-0 text-center second-font fs-3'>{name}</p>

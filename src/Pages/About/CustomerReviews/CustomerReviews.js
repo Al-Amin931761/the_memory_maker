@@ -12,7 +12,7 @@ const CustomerReviews = () => {
     }, [reviews])
     return (
         <div>
-            <h1 className='text-center mt-5 fw-bold second-font'><BsPeopleFill className='mb-1' /> Love from customers! <BsPeopleFill className='mb-1' /></h1>
+            <h1 className='text-center fw-bold second-font mb-3'><BsPeopleFill className='mb-1' /> Love from customers! <BsPeopleFill className='mb-1' /></h1>
 
             <div className='reviews'>
                 {

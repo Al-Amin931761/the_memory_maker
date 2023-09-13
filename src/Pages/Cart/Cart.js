@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import useShoppingCart from '../../hooks/useShoppingCart';
 import { BsArrowLeft } from 'react-icons/bs';
 import { HiOutlineArrowRight } from 'react-icons/hi';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const Cart = () => {
     const { cartData, subTotal, tax, shipping, grandTotal } = useShoppingCart();
@@ -14,7 +15,7 @@ const Cart = () => {
     let shoppingCart;
     if (cartData.length > 0) {
         shoppingCart = <div>
-            <Table responsive>
+            <Table responsive className='mb-3'>
                 <thead>
                     <tr>
                         <th></th>
@@ -78,7 +79,7 @@ const Cart = () => {
     } else {
 
         shoppingCart = <div className='d-flex flex-column align-items-center justify-content-center vh-100'>
-            <p className='fs-4'>You have nothing in your shopping cart.</p>
+            <p className='fs-4 mb-3'>You have nothing in your shopping cart.</p>
             <Link to='/prints' className='btn btn-outline-dark'><BsArrowLeft className='me-1' style={{ marginBottom: '2px' }} />Continue Shopping</Link>
         </div>
 
@@ -86,7 +87,8 @@ const Cart = () => {
 
     return (
         <div className='common-styles'>
-            <h2 className='text-center second-font'>Cart Page</h2>
+            <PageTitle title="Cart" />
+            <h1 className='text-center second-font fw-bold mb-3'>Cart</h1>
             {shoppingCart}
         </div>
     );

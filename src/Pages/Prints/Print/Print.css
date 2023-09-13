@@ -1,13 +1,10 @@
 .print-container {
-    margin: 40px;
-    border: 2px solid red;
+    margin: 0 30px 30px 30px;
     cursor: pointer;
-    transition: 0.5s;
-
 }
 
 .print-container:hover {
-    transform: scale(1.05);
+    transition: 0.7s;
     box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.41);
     -webkit-box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.41);
     -moz-box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.41);

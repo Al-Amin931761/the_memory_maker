@@ -1,5 +1,4 @@
 .contact-container {
-    border: 2px dashed seagreen;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }

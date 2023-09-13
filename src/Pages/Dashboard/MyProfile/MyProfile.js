@@ -120,7 +120,7 @@ const MyProfile = () => {
             <PageTitle title="My Profile"></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin second-font'>My Profile</h2>
+                <h1 className='title-margin second-font fw-bold mb-3'>My Profile</h1>
             </div>
 
             <div className='my-profile-container'>
@@ -141,8 +141,8 @@ const MyProfile = () => {
                 </div>
 
                 {/* change password */}
-                <form onSubmit={handleUpdatePassword} className='border border-2 border-primary d-flex flex-column justify-content-center align-items-center px-3'>
-                    <h3 className='text-center second-font'>Update Password</h3>
+                <form onSubmit={handleUpdatePassword} className='d-flex flex-column justify-content-center align-items-center px-3'>
+                    <h3 className='text-center second-font m-0'>Update Password</h3>
                     {/* new password */}
                     <div className="form-floating my-3 w-100">
                         <input ref={newPasswordRef} type="password" className="form-control" id="newPassword" placeholder="New Password" required />
@@ -163,7 +163,7 @@ const MyProfile = () => {
             <div>
                 <Modal size="lg" backdrop="static" keyboard={false} show={modalShow} onHide={() => setModalShow(false)} aria-labelledby="update-profile-modal">
                     <Modal.Header closeButton>
-                        <Modal.Title id="update-profile-modal">
+                        <Modal.Title className='second-font' id="update-profile-modal">
                             Update Profile
                         </Modal.Title>
                     </Modal.Header>

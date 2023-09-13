@@ -12,6 +12,7 @@ const Checkout = () => {
     return (
         <div className='common-styles'>
             <PageTitle title='Checkout'></PageTitle>
+            <h1 className='fw-bold second-font text-center mb-3'>Checkout</h1>
 
             <div className='checkout'>
                 <div className='checkout-form'>

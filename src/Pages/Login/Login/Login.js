@@ -12,11 +12,13 @@ import PageTitle from '../../Shared/PageTitle/PageTitle';
 import loginImage from '../../../images/login.png'
 import { BiSolidLogIn } from 'react-icons/bi';
 import useToken from '../../../hooks/useToken';
+import { useState } from 'react';
 
 const Login = () => {
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [token] = useToken(user);
+    const [showPassword, setShowPassword] = useState(false);
 
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -67,7 +69,7 @@ const Login = () => {
         <div className='common-styles'>
             <PageTitle title="Login"></PageTitle>
             <div>
-                <h2 className='text-center fw-medium second-font'>Please Login</h2>
+                <h1 className='text-center fw-bold second-font mb-3'>Login</h1>
 
                 <div className='login-container'>
                     {/* image  */}
@@ -82,10 +84,19 @@ const Login = () => {
                                 <input ref={emailRef} type="email" className="form-control" id="email-address" placeholder="Email Address" required />
                                 <label htmlFor="email-address">Email address</label>
                             </div>
-                            <div className="form-floating mb-3">
-                                <input ref={passwordRef} type="password" className="form-control" id="password" placeholder="Password" required />
-                                <label htmlFor="password">Password</label>
+                            <div className='mb-3'>
+                                <div className="form-floating">
+                                    <input ref={passwordRef} type={showPassword ? 'text' : "password"} className="form-control" id="password" placeholder="Password" required />
+                                    <label htmlFor="password">Password</label>
+                                </div>
+
+                                {/* toggle */}
+                                <div className='mt-1'>
+                                    <input onClick={() => setShowPassword(!showPassword)} className="form-check-input" name='toggle' id='toggle' type="checkbox" />
+                                    <label htmlFor="toggle" className='ms-2' style={{ cursor: 'pointer' }}><small>{showPassword ? <span>Hide Password</span> : <span>Show Password</span>}</small></label>
+                                </div>
                             </div>
+
 
                             {loginError}
 

@@ -5,16 +5,16 @@ import './Contact.css';
 import image from '../../images/my-image.png';
 
 const Contact = () => {
-
     const nameRef = useRef('');
     const emailRef = useRef("");
     const phoneRef = useRef("");
     const messageRef = useRef("");
+
     return (
         <div className='common-styles'>
             <PageTitle title="Contact"></PageTitle>
-            <h2 className='text-center second-font'>Contact page</h2>
-            <p className='text-center'>Please let me know how I can help. I look forward to working with you.</p>
+            <h1 className='text-center fw-bold second-font mb-0'>Contact</h1>
+            <p className='text-center my-3'>Please let me know how I can help. I look forward to working with you.</p>
 
             <div className='contact-container'>
                 {/* image */}

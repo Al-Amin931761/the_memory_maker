@@ -3,4 +3,5 @@
     position: fixed !important;
     top: 79px;
     background-color: transparent;
+    z-index: 1;
 }

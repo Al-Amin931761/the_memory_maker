@@ -5,7 +5,21 @@
 
 .common-styles {
   margin: 10px;
+  border: 2px solid seagreen;
 }
+
+
+.common-hover-effect {
+  background-color: #fdfce56b;
+  transition: 0.7s;
+}
+
+.common-hover-effect:hover {
+  background-color: #FDFCE5;
+  transform: scale(1.05);
+}
+
+
 
 .second-font {
   font-family: 'Old Standard TT', serif;

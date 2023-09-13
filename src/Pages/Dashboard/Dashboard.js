@@ -9,7 +9,7 @@ const Dashboard = () => {
             <PageTitle title="Dashboard"></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin second-font'>Dashboard</h2>
+                <h1 className='title-margin second-font fw-bold m-0'>Dashboard</h1>
             </div>
 
             <div className='h-100 d-flex justify-content-center align-items-center'>

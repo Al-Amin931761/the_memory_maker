@@ -5,7 +5,7 @@ const CustomerReview = ({ data }) => {
     const { name, rating, review, today } = data;
 
     return (
-        <div className='border border-2 rounded p-2 review'>
+        <div className='border border-2 rounded p-2 review common-hover-effect'>
             <p className='second-font fs-3 text-center m-0'>{name}</p>
 
             <StarPicker value={rating} halfStars size={40} className='text-center' />

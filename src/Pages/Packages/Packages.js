@@ -3,6 +3,7 @@ import './Packages.css';
 import { FaCamera } from "react-icons/fa";
 import Package from './Package/Package';
 import Loading from '../Shared/Loading/Loading';
+import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const Packages = () => {
     useEffect(() => {
@@ -17,8 +18,10 @@ const Packages = () => {
     };
 
     return (
-        <div>
-            <h1 className='text-center mt-5 fw-bold second-font'><FaCamera className='mb-2' />  Packages ({packages.length}) <FaCamera className='mb-2' /> </h1>
+        <div className='common-styles'>
+            <PageTitle title="Packages"></PageTitle>
+            <h1 className='mb-3 text-center fw-bold second-font'><FaCamera className='mb-2' />  Packages ({packages.length}) <FaCamera className='mb-2' /> </h1>
+
             <div className='packages'>
                 {
                     packages.map(data => <Package key={data._id} data={data}></Package>)

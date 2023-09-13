@@ -55,7 +55,7 @@ const AddPrint = () => {
             <PageTitle title='Add Print'></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin second-font'>Add Print</h2>
+                <h1 className='title-margin second-font fw-bold mb-3'>Add Print</h1>
             </div>
 
             <div className='add-print-container'>

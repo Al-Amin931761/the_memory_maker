@@ -11,7 +11,7 @@ const Print = ({ data }) => {
     }
 
     return (
-        <div className='print-container border border-2 rounded-bottom' onClick={handleNavigate}>
+        <div className='print-container common-hover-effect border border-2 rounded-bottom' onClick={handleNavigate}>
             <div className='print-image'>
                 <img src={image} alt="" />
             </div>

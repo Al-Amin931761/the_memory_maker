@@ -4,10 +4,11 @@ import { ImLocation2 } from 'react-icons/im';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import PageTitle from '../../../Shared/PageTitle/PageTitle';
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../../firebase.init';
+import auth from '../../../firebase.init';
 import RandomPrints from './RandomPrints/RandomPrints';
+import { BsFillPrinterFill } from 'react-icons/bs';
 
 const PrintDetails = () => {
     const [user] = useAuthState(auth);
@@ -59,6 +60,7 @@ const PrintDetails = () => {
                     } else if (data.modifiedCount > 0) {
                         toast.success(`${name} - item quantities have been updated`);
                     }
+                    event.target.reset();
                 })
         }
 
@@ -77,13 +79,14 @@ const PrintDetails = () => {
     return (
         <div className='common-styles'>
             <PageTitle title='Print Details'></PageTitle>
-            <h2 className='text-center'>Print Details</h2>
+            <h1 className='text-center fw-bold second-font mb-3'><BsFillPrinterFill className='mb-1' /> Print Details <BsFillPrinterFill className='mb-1' /></h1>
+
             <div className='print-details-container'>
-                <div className='print-image'>
+                <div className='print-image ms-1'>
                     <img className='img-fluid' src={image} alt="" />
                 </div>
 
-                <div className='p-2 d-flex align-items-center'>
+                <div className='p-2 d-flex align-items-center me-1'>
                     <div>
                         <h2 className='mb-3'>{name}</h2>
                         <p className='mb-3'><ImLocation2 />{location}</p>
@@ -118,7 +121,8 @@ const PrintDetails = () => {
             </div>
 
             {/* random prints */}
-            <div className='mt-5'>
+            <hr className='mb-4 mt-5' />
+            <div>
                 <RandomPrints id={_id} />
             </div>
         </div>

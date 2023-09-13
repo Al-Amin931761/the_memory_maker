@@ -35,11 +35,11 @@ const Orders = () => {
             <PageTitle title='Orders'></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin second-font'>Orders ({orders?.length})</h2>
+                <h1 className='title-margin second-font fw-bold mb-3'>Orders ({orders?.length})</h1>
             </div>
 
-            <div className='mt-5'>
-                <Table responsive bordered hover>
+            <div>
+                <Table responsive bordered hover className='mb-0'>
                     <thead>
                         <tr>
                             <th></th>

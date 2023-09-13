@@ -1,13 +1,6 @@
 .package {
-    margin: 20px;
+    margin: 0 20px 20px 20px;
     padding: 20px;
     border-radius: 10px;
-    background-color: #fdfce56b;
     text-align: center;
-    transition: 0.7s;
-}
-
-.package:hover {
-    background-color: #FDFCE5;
-    transform: scale(1.05);
 }

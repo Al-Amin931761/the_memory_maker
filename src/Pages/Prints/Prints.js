@@ -4,6 +4,7 @@ import Print from './Print/Print';
 import PageTitle from '../Shared/PageTitle/PageTitle';
 import Loading from '../Shared/Loading/Loading';
 import { FloatingLabel, Form } from 'react-bootstrap';
+import { BsFillPrinterFill } from 'react-icons/bs';
 
 const Prints = () => {
     const [prints, setPrints] = useState([]);
@@ -38,14 +39,15 @@ const Prints = () => {
 
     const handleSelectChange = (event) => {
         setPrintPerPage(parseInt(event.target.value));
-        setCurrentPage(0); // ****
-    }
+        setCurrentPage(0); //***
+    };
+
     return (
         <div className='common-styles'>
             <PageTitle title="Prints"></PageTitle>
-            <h2 className='second-font text-center'>Prints</h2>
+            <h1 className='second-font fw-bold text-center mb-3'><BsFillPrinterFill className='mb-1' /> Prints <BsFillPrinterFill className='mb-1' /></h1>
 
-            <div className='prints-container common-styles'>
+            <div className='prints-container'>
                 {
                     prints.map(data => <Print key={data._id} data={data}></Print>)
                 }
@@ -59,7 +61,7 @@ const Prints = () => {
                     }
                 </div>
 
-                <FloatingLabel style={{ width: '90px' }} className='p-0 ms-2 ' onChange={handleSelectChange} controlId="floatingSelectGrid" label="Show">
+                <FloatingLabel style={{ width: '90px' }} className='p-0 ms-2' onChange={handleSelectChange} controlId="floatingSelectGrid" label="Show">
                     <Form.Select className='border border-dark' aria-label="Floating label select example">
                         <option className='text-center' value="6">6</option>
                         <option className='text-center' value="9">9</option>

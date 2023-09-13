@@ -74,7 +74,7 @@ const AddReview = () => {
             <PageTitle title='Add Review'></PageTitle>
             <div className='d-flex align-items-center'>
                 <Sidebar />
-                <h2 className='title-margin second-font'>Leave a Review</h2>
+                <h1 className='title-margin second-font fw-bold mb-3'>Leave a Review</h1>
             </div>
 
             <div className='review-container'>

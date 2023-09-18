@@ -3,12 +3,23 @@ import PageTitle from '../Shared/PageTitle/PageTitle';
 import { Button } from 'react-bootstrap';
 import './Contact.css';
 import image from '../../images/my-image.png';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
-    const nameRef = useRef('');
-    const emailRef = useRef("");
-    const phoneRef = useRef("");
-    const messageRef = useRef("");
+    const form = useRef();
+
+    const sendEmail = event => {
+        event.preventDefault();
+        emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, form.current, process.env.REACT_APP_PUBLIC_KEY)
+            .then((result) => {
+                toast.success("Your message has been sent successfully");
+            }, (error) => {
+                console.log(error.text);
+            });
+
+        event.target.reset();
+    };
 
     return (
         <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
@@ -22,7 +33,7 @@ const Contact = () => {
                     <img className='img-fluid' src={image} alt="" />
                 </div>
 
-                <form className='d-flex flex-column justify-content-center' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
+                <form ref={form} onSubmit={sendEmail} className='contact-form d-flex flex-column justify-content-center' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div>
                         <h2 className='text-uppercase'>Let's do this.</h2>
                         <p>Please contact me at <a className='text-decoration-none second-font' href="tel:+8801741931761">+8801741931761</a> for whatever you need, OR think you need.</p>
@@ -30,25 +41,19 @@ const Contact = () => {
                     </div>
                     {/* name */}
                     <div className="form-floating">
-                        <input ref={nameRef} type="text" className="form-control" id="name" placeholder="Name" required />
+                        <input name="user_name" type="text" className="form-control" id="name" placeholder="Name" required />
                         <label htmlFor="name">Name</label>
                     </div>
 
                     {/* email */}
                     <div className="form-floating my-3">
-                        <input ref={emailRef} type="email" className="form-control" id="email-address" placeholder="Email" required />
+                        <input name="user_email" type="email" className="form-control" id="email-address" placeholder="Email" required />
                         <label htmlFor="email-address">Email Address</label>
-                    </div>
-
-                    {/* phone */}
-                    <div className="form-floating">
-                        <input ref={phoneRef} type="number" className="form-control" id="phone" placeholder="Phone" required />
-                        <label htmlFor="phone">Phone</label>
                     </div>
 
                     {/* message */}
                     <div className="form-floating my-3 message">
-                        <textarea ref={messageRef} className="form-control" placeholder="Message" id="message" required />
+                        <textarea name="message" className="form-control" placeholder="Message" id="message" required />
                         <label htmlFor="message">Message</label>
                     </div>
                     <Button className='py-2 submit-button' variant="outline-dark" type="submit">Submit</Button>

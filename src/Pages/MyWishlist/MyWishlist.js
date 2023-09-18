@@ -23,7 +23,7 @@ const MyWishlist = () => {
     }
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="My Wishlist"></PageTitle>
             <h1 className='text-center second-font fw-bold mb-3'>My Wishlist ({myWishlistArray.length})</h1>
 

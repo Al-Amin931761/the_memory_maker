@@ -6,7 +6,12 @@ const useShoppingCart = () => {
     const [user] = useAuthState(auth);
     const [cartData, setCartData] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/temporaryData/${user?.email}`)
+        fetch(`http://localhost:5000/temporaryData/${user?.email}`, {
+            method: "GET",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setCartData(data))
     }, [user?.email, cartData]);

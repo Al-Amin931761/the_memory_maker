@@ -6,7 +6,7 @@ import { BsArrowLeft } from 'react-icons/bs';
 
 const NotFound = () => {
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="404"> </PageTitle>
             <img className='img-fluid' src={notfound} alt="" />
             <div className='mt-3 d-flex justify-content-center'>

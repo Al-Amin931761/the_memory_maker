@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import Sidebar from '../Sidebar/Sidebar';
 import { Table } from 'react-bootstrap';
 import ManagePrint from './ManagePrint/ManagePrint';
+import usePrints from '../../../hooks/usePrints';
 
 const ManagePrints = () => {
-    const [allPrint, setAllPrint] = useState([]);
-    useEffect(() => {
-        fetch(`http://localhost:5000/allPrint`)
-            .then(res => res.json())
-            .then(data => setAllPrint(data))
-    }, [allPrint]);
+    const { allPrint } = usePrints();
 
     return (
         <div className='common-styles'>
@@ -20,7 +16,7 @@ const ManagePrints = () => {
                 <h1 className='title-margin second-font fw-bold mb-3'>Manage Prints ({allPrint.length})</h1>
             </div>
 
-            <div>
+            <div data-aos="fade-down" data-aos-duration="2000">
                 <Table responsive bordered hover className='mb-0'>
                     <thead>
                         <tr>

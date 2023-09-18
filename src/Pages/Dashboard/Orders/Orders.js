@@ -38,7 +38,7 @@ const Orders = () => {
                 <h1 className='title-margin second-font fw-bold mb-3'>Orders ({orders?.length})</h1>
             </div>
 
-            <div>
+            <div data-aos="fade-down" data-aos-duration="2000">
                 <Table responsive bordered hover className='mb-0'>
                     <thead>
                         <tr>

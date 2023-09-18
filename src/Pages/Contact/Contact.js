@@ -11,18 +11,18 @@ const Contact = () => {
     const messageRef = useRef("");
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="Contact"></PageTitle>
             <h1 className='text-center fw-bold second-font mb-0'>Contact</h1>
             <p className='text-center my-3'>Please let me know how I can help. I look forward to working with you.</p>
 
             <div className='contact-container'>
                 {/* image */}
-                <div className='d-flex justify-content-center'>
+                <div className='d-flex justify-content-center' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <img className='img-fluid' src={image} alt="" />
                 </div>
 
-                <form className='d-flex flex-column justify-content-center'>
+                <form className='d-flex flex-column justify-content-center' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div>
                         <h2 className='text-uppercase'>Let's do this.</h2>
                         <p>Please contact me at <a className='text-decoration-none second-font' href="tel:+8801741931761">+8801741931761</a> for whatever you need, OR think you need.</p>

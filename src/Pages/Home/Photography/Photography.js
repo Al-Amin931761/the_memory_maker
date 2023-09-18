@@ -11,44 +11,43 @@ import { FaCamera } from "react-icons/fa";
 
 const Photography = () => {
     return (
-        <div>
+        <div data-aos="fade-up" data-aos-duration="1000">
             <h1 className='text-center mb-3 fw-bold second-font'><FaCamera className='mb-2' /> My Best Photographs <FaCamera className='mb-2' /></h1>
 
             {/* first column  */}
             <div className="container">
                 <div className="row">
                     <div className="col-4">
-                        <div className="row mb-3">
-
+                        <div className="row mb-3" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img1} alt="" />
                         </div>
-                        <div className="row">
+                        <div className="row" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img2} alt="" />
                         </div>
                     </div>
                     {/* middle column  */}
 
                     <div className="col-4">
-                        <div className="row mb-3">
+                        <div className="row mb-3" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img3} alt="" />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-3" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img4} alt="" />
                         </div>
-                        <div className="mb-6">
+                        <div className="mb-6" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img5} alt="" />
                         </div>
                     </div>
 
                     {/* last column   */}
                     <div className="col-4">
-                        <div className="row mb-3">
+                        <div className="row mb-3" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img6} alt="" />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-3" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img7} alt="" />
                         </div>
-                        <div className="mb-6">
+                        <div className="mb-6" data-aos="zoom-in" data-aos-duration="3000">
                             <img className="img-fluid" src={img8} alt="" />
                         </div>
                     </div>

@@ -112,9 +112,9 @@ const ManagePrint = ({ data, index }) => {
             {/*edit modal */}
             <Modal show={showEditModal} onHide={editModalClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title className='second-font'>{name}</Modal.Title>
+                    <Modal.Title data-aos="fade-down" data-aos-duration="1000" className='second-font'>{name}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body data-aos="fade-down" data-aos-duration="1000">
                     <form onSubmit={handleSubmit}>
                         {/* image url */}
                         <div className="form-floating mb-3">
@@ -140,10 +140,10 @@ const ManagePrint = ({ data, index }) => {
             {/* delete modal */}
             <Modal show={showDeleteModal} onHide={deleteModalClose} backdrop="static" keyboard={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title className='second-font'>{name}</Modal.Title>
+                    <Modal.Title className='second-font' data-aos="fade-down" data-aos-duration="1000">{name}</Modal.Title>
                 </Modal.Header>
-                <Modal.Body className='fs-5'>Are you sure to delete <span className='text-danger second-font'>{name}</span>?</Modal.Body>
-                <Modal.Footer>
+                <Modal.Body className='fs-5' data-aos="fade-down" data-aos-duration="1000">Are you sure to delete <span className='text-danger second-font'>{name}</span>?</Modal.Body>
+                <Modal.Footer data-aos="fade-down" data-aos-duration="1000">
                     <Button variant="outline-dark" onClick={deleteModalClose}>Close</Button>
                     <Button variant="outline-danger" onClick={handleDeletePrint}>Delete</Button>
                 </Modal.Footer>

@@ -27,7 +27,7 @@ const TableRow = ({ data, index }) => {
                     </div>
                     <div className='ms-3'>
                         <p className='m-0'>{name}</p>
-                        <button onClick={() => handleDelete(_id)} className='btn btn-link m-0 p-0'>Remove</button>
+                        <button onClick={() => handleDelete(_id)} className='btn btn-link text-danger m-0 p-0'>Remove</button>
                     </div>
                 </td>
                 <td className='text-center'>{sizeAndMedium}</td>

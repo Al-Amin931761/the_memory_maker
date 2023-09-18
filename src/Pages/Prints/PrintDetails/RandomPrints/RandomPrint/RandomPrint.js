@@ -9,12 +9,12 @@ const RandomPrint = ({ data }) => {
     }
     return (
         <div className='print-container common-hover-effect border border-2 rounded-bottom' onClick={handleNavigate}>
-            <div className='print-image'>
+            <div className='print-image' data-aos="zoom-in" data-aos-duration="3000">
                 <img src={image} alt={name} />
             </div>
-            <div className='mt-2'>
+            <div className='my-2'>
                 <p className='m-0 text-center second-font fs-3'>{name}</p>
-                <p className='m-0 text-center pb-2'>Starting at $150.00</p>
+                <p className='m-0 text-center'>Starting at $150.00</p>
             </div>
         </div>
     );

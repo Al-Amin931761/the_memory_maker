@@ -97,7 +97,6 @@ const CheckoutForm = () => {
 
         if (confirmError) {
             setCardError(confirmError.message)
-            console.log(error);
         }
         setProcessing(false);
         if (paymentIntent.status === "succeeded") {
@@ -165,7 +164,7 @@ const CheckoutForm = () => {
                     <label style={{ cursor: 'pointer' }} onClick={ModalShow} className={`ms-2 text-decoration-underline ${agree ? 'text-dark' : 'text-danger'}`} htmlFor="terms">Accept Terms of Use and Refund Policy</label>
                 </div>
 
-                <button className='btn btn-outline-dark' type="submit" disabled={!stripe || !clientSecret || processing || !agree}>
+                <button className={`${(!stripe || !clientSecret || processing || !agree) ? "btn btn-dark" : 'btn btn-outline-dark'}`} type="submit" disabled={!stripe || !clientSecret || processing || !agree}>
                     Pay
                 </button>
                 {cardError && <p className='text-danger my-2'>{cardError}</p>}
@@ -175,10 +174,10 @@ const CheckoutForm = () => {
 
             {/* terms and refund policy modal */}
             <Modal show={showDeleteModal} onHide={ModalClose} backdrop="static" keyboard={false} size="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton data-aos="fade-down" data-aos-duration="1000">
                     <Modal.Title className='second-font'>Returns & Refunds Policy</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body data-aos="fade-down" data-aos-duration="1000">
                     <p>Thank you for shopping online at my website! If you are not fully satisfied with your purchase, I'm here to help.</p>
 
                     <div>

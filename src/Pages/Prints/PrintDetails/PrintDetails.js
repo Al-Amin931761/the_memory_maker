@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './PrintDetails.css';
 import { ImLocation2 } from 'react-icons/im';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
@@ -9,12 +9,20 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import RandomPrints from './RandomPrints/RandomPrints';
 import { BsFillPrinterFill } from 'react-icons/bs';
+import { GiShoppingCart } from 'react-icons/gi';
+import { AiOutlineHeart } from 'react-icons/ai';
+import useWishlist from '../../../hooks/useWishlist';
+import { signOut } from 'firebase/auth';
 
 const PrintDetails = () => {
     const [user] = useAuthState(auth);
     const printData = useLoaderData();
     const { image, name, location, _id } = printData;
     const [price, setPrice] = useState(150);
+    const { userInfo } = useWishlist();
+
+    const exist = userInfo.arrayOfWishlistIds?.find(printId => printId === _id);
+
 
     let sizeAndMedium;
     if (price === 150) {
@@ -76,17 +84,51 @@ const PrintDetails = () => {
         }, 86400000)
     };
 
+    // wishlist 
+    const navigate = useNavigate();
+    const handleAddToWishlist = (id) => {
+        let arrayOfWishlistIds;
+        if (userInfo.arrayOfWishlistIds) {
+            arrayOfWishlistIds = [id, ...userInfo.arrayOfWishlistIds];
+        } else {
+            arrayOfWishlistIds = [id]
+        }
+        fetch(`http://localhost:5000/myWishlist/${user?.email}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            body: JSON.stringify({ arrayOfWishlistIds })
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/login');
+                }
+                return res.json();
+            })
+            .then(data => {
+                if (data?.modifiedCount) {
+                    toast.success(`${name} - added to Wishlist`);
+                } else {
+                    toast.error(`${name} - has not been added to wishlist`);
+                }
+            })
+    };
+
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title='Print Details'></PageTitle>
             <h1 className='text-center fw-bold second-font mb-3'><BsFillPrinterFill className='mb-1' /> Print Details <BsFillPrinterFill className='mb-1' /></h1>
 
             <div className='print-details-container'>
-                <div className='print-image ms-1'>
+                <div className='print-image ms-1' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <img className='img-fluid' src={image} alt="" />
                 </div>
 
-                <div className='p-2 d-flex align-items-center me-1'>
+                <div className='p-2 d-flex align-items-center me-1' data-aos="fade-left" data-aos-offset="300" data-aos-duration="3000" data-aos-easing="ease-in-sine">
                     <div>
                         <h2 className='mb-3'>{name}</h2>
                         <p className='mb-3'><ImLocation2 />{location}</p>
@@ -108,7 +150,11 @@ const PrintDetails = () => {
                                 <Form.Control className='border border-dark' ref={quantityRef} type="number" placeholder="Quantity" required />
                             </FloatingLabel>
 
-                            <Button variant="outline-dark" type="submit">Add To Cart</Button>
+                            <div className='d-flex justify-content-start align-items-center'>
+                                <button className='me-2 btn btn-outline-dark' type="submit"><GiShoppingCart className='fs-5 mb-1 me-1' />Add To Cart</button>
+
+                                <button type='button' className={`${exist ? 'btn btn-dark' : "btn btn-outline-dark"}`} disabled={exist ? true : false} onClick={() => handleAddToWishlist(_id)} ><AiOutlineHeart className='fs-5 mb-1 me-1' />Add To Wishlist</button>
+                            </div>
                         </form>
 
                         <div className='mt-3'>
@@ -122,7 +168,7 @@ const PrintDetails = () => {
 
             {/* random prints */}
             <hr className='mb-4 mt-5' />
-            <div>
+            <div data-aos="fade-up" data-aos-duration="1000">
                 <RandomPrints id={_id} />
             </div>
         </div>

@@ -18,7 +18,7 @@ const Packages = () => {
     };
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="Packages"></PageTitle>
             <h1 className='mb-3 text-center fw-bold second-font'><FaCamera className='mb-2' />  Packages ({packages.length}) <FaCamera className='mb-2' /> </h1>
 

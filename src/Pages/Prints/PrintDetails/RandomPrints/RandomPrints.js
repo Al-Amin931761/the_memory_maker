@@ -35,4 +35,4 @@ const RandomPrints = ({ id }) => {
     );
 };
 
-export default RandomPrints;
+export default React.memo(RandomPrints);

@@ -62,7 +62,7 @@ const Order = ({ data, index }) => {
                 }
             </td>
             <td className='text-center'>
-                <button disabled={orderStatus} onClick={() => handleStatus(_id)} className='btn btn-outline-dark'>{status}</button>
+                <button className={`mt-3 ${orderStatus ? "btn btn-success" : "btn btn-outline-dark"}`} disabled={orderStatus} onClick={() => handleStatus(_id)}>{status}</button>
             </td>
         </tr>
     );

@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import Loading from '../../Shared/Loading/Loading';
 import Social from '../Social/Social';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import ReCAPTCHA from "react-google-recaptcha";
 import loginImage from '../../../images/login.png'
 import { BiSolidLogIn } from 'react-icons/bi';
 import useToken from '../../../hooks/useToken';
@@ -19,6 +20,7 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
     const [token] = useToken(user);
     const [showPassword, setShowPassword] = useState(false);
+    const [googleRecaptchaSitekey, setGoogleRecaptchaSitekey] = useState("");
 
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -65,20 +67,26 @@ const Login = () => {
         return <Loading></Loading>
     }
 
+    // google recaptcha
+    const googleRecaptcha = (value) => {
+        setGoogleRecaptchaSitekey(value)
+    };
+
+
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="Login"></PageTitle>
             <div>
                 <h1 className='text-center fw-bold second-font mb-3'>Login</h1>
 
                 <div className='login-container'>
                     {/* image  */}
-                    <div className='login-image'>
+                    <div className='login-image' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                         <img className='img-fluid' src={loginImage} alt="" />
                     </div>
 
                     {/* form  */}
-                    <div className='login'>
+                    <div className='login' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                         <form onSubmit={handleLogin}>
                             <div className="form-floating mb-3">
                                 <input ref={emailRef} type="email" className="form-control" id="email-address" placeholder="Email Address" required />
@@ -100,7 +108,10 @@ const Login = () => {
 
                             {loginError}
 
-                            <Button className='' variant="outline-dark" type="submit">Login <BiSolidLogIn className='icon' /></Button>
+                            {/* google recaptcha  */}
+                            <ReCAPTCHA sitekey={process.env.REACT_APP_google_recaptcha_sitekey} onChange={googleRecaptcha} />
+
+                            <button className={`mt-3 ${!googleRecaptchaSitekey ? "btn btn-dark" : "btn btn-outline-dark"}`} disabled={!googleRecaptchaSitekey} type="submit">Login <BiSolidLogIn className='icon' /></button>
                         </form>
                         <p className='mt-3'>New to The Memory Maker? <Link className='text-decoration-none' to='/register'> Please Register <BsArrowRight /></Link></p>
                         <p>Forget Password? <span onClick={resetPassword} className='text-primary'>Reset Password <BsArrowRight /></span></p>

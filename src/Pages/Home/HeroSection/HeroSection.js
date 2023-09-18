@@ -5,7 +5,7 @@ import './HeroSection.css';
 
 const HeroSection = () => {
     return (
-        <div className='hero-container'>
+        <div className='hero-container' data-aos="fade-up" data-aos-duration="1000">
             <div className='d-flex justify-content-center align-items-center'>
                 <img className='img-fluid' src={heroImage} alt="" />
             </div>

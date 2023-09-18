@@ -79,12 +79,12 @@ const AddReview = () => {
 
             <div className='review-container'>
                 {/* image */}
-                <div>
+                <div data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <img className='img-fluid' src={reviewImage} alt="" />
                 </div>
 
                 {/* review and ratings */}
-                <div className='review-and-ratings'>
+                <div className='review-and-ratings' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     {/* ratings */}
                     <div className='my-3 d-flex flex-column align-items-center mt-3'>
                         <p className='mb-0'>Click stars to rate</p>
@@ -98,7 +98,7 @@ const AddReview = () => {
                             <label htmlFor="review">Review content</label>
                         </div>
                         <div className='my-3 d-flex justify-content-center'>
-                            <Button disabled={!rating} className='py-2' variant="outline-dark" type="submit">Submit Your Review</Button>
+                            <button className={`py-2 ${!rating ? "btn btn-dark" : "btn btn-outline-dark"}`} disabled={!rating} type="submit">Submit Your Review</button>
                         </div>
                     </form>
                 </div>

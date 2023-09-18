@@ -125,7 +125,7 @@ const MyProfile = () => {
 
             <div className='my-profile-container'>
                 {/* profile info */}
-                <div className='shadow-lg p-2 rounded-3 profile-card w-100'>
+                <div className='shadow-lg p-2 rounded-3 profile-card w-100' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div className='edit-profile-button'>
                         <Button variant="outline-dark" onClick={() => setModalShow(true)}><FaRegEdit className='me-1 mb-1' />Edit</Button>
                     </div>
@@ -141,7 +141,7 @@ const MyProfile = () => {
                 </div>
 
                 {/* change password */}
-                <form onSubmit={handleUpdatePassword} className='d-flex flex-column justify-content-center align-items-center px-3'>
+                <form onSubmit={handleUpdatePassword} className='d-flex flex-column justify-content-center align-items-center px-3' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <h3 className='text-center second-font m-0'>Update Password</h3>
                     {/* new password */}
                     <div className="form-floating my-3 w-100">
@@ -163,12 +163,12 @@ const MyProfile = () => {
             <div>
                 <Modal size="lg" backdrop="static" keyboard={false} show={modalShow} onHide={() => setModalShow(false)} aria-labelledby="update-profile-modal">
                     <Modal.Header closeButton>
-                        <Modal.Title className='second-font' id="update-profile-modal">
+                        <Modal.Title data-aos="fade-down" data-aos-duration="1000" className='second-font' id="update-profile-modal">
                             Update Profile
                         </Modal.Title>
                     </Modal.Header>
 
-                    <Modal.Body>
+                    <Modal.Body data-aos="fade-down" data-aos-duration="1000">
                         <form onSubmit={handleUpdateProfile}>
                             {/* name */}
                             <div className="form-floating">

@@ -86,7 +86,7 @@ const Cart = () => {
     }
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000" >
             <PageTitle title="Cart" />
             <h1 className='text-center second-font fw-bold mb-3'>Cart</h1>
             {shoppingCart}

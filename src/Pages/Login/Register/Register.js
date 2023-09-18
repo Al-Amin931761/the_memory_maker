@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -12,6 +12,7 @@ import { BiSolidLogIn } from 'react-icons/bi';
 import Social from '../Social/Social';
 import { toast } from 'react-toastify';
 import useToken from '../../../hooks/useToken';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 
 const Register = () => {
@@ -19,11 +20,22 @@ const Register = () => {
     const [updateProfile, updating, updateProfileError] = useUpdateProfile(auth);
     const [token] = useToken(user);
     const [agree, setAgree] = useState(false);
+    const [googleRecaptcha, setGoogleRecaptcha] = useState(false);
+    const [registerButton, setRegisterButton] = useState(true);
     const [showPassword, setShowPassword] = useState(false);
     // modal 
     const [showDeleteModal, setShowModal] = useState(false);
     const ModalClose = () => setShowModal(false);
     const ModalShow = () => setShowModal(true);
+
+    // register button 
+    useEffect(() => {
+        if (googleRecaptcha === true && agree === true) {
+            setRegisterButton(false);
+        } else {
+            setRegisterButton(true);
+        }
+    }, [googleRecaptcha, agree])
 
     const nameRef = useRef('');
     const imageRef = useRef('');
@@ -47,34 +59,40 @@ const Register = () => {
             toast.error('Password did not match');
         }
         event.target.reset();
-    }
-
+    };
 
     const navigate = useNavigate();
     if (token) {
         navigate("/");
-    }
+    };
 
     let registerError = '';
     if (error || updateProfileError) {
         registerError = <div><p className='text-danger'> {error?.message || updateProfileError.message}</p></div>
-    }
+    };
 
     if (loading || updating) {
         return <Loading></Loading>
-    }
+    };
+
+    // google recaptcha
+    const handleGoogleRecaptcha = (value) => {
+        if (value) {
+            setGoogleRecaptcha(true);
+        }
+    };
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="Register"></PageTitle>
             <h1 className='text-center fw-bold second-font mb-3'>Register</h1>
 
             <div className='register-container'>
-                <div className="register-image">
+                <div className="register-image" data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <img className='img-fluid' src={registerImage} alt="" />
                 </div>
 
-                <div className="register">
+                <div className="register" data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div>
                         <form onSubmit={handleRegister}>
 
@@ -123,9 +141,12 @@ const Register = () => {
 
                             {registerError}
 
-                            <Button disabled={!agree} variant="outline-dark" type="submit">
+                            {/* google recaptcha  */}
+                            <ReCAPTCHA sitekey={process.env.REACT_APP_google_recaptcha_sitekey} onChange={handleGoogleRecaptcha} />
+
+                            <button className={`mt-3 ${registerButton ? "btn btn-dark" : "btn btn-outline-dark"}`} disabled={registerButton} type="submit">
                                 Register <BiSolidLogIn className='icon' />
-                            </Button>
+                            </button>
                         </form>
                         <p className='mt-3'>Already have an account? <Link className='text-decoration-none' to='/login'> Please Login <BsArrowRight /></Link>
                         </p>
@@ -145,12 +166,12 @@ const Register = () => {
 
             {/* terms and conditions modal */}
             <Modal show={showDeleteModal} onHide={ModalClose} backdrop="static" keyboard={false} size="lg">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton data-aos="fade-down" data-aos-duration="1000">
                     <Modal.Title className='second-font'>Terms and Conditions</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>
-                        <ol>
+                        <ol data-aos="fade-down" data-aos-duration="1000">
                             <li><span className='fw-bold'>Booking Deposit and Payment: </span>The Client shall make a booking fee as per the contract to retain the Studio to perform the services specified in the contract.</li>
 
                             <li><span className='fw-bold'>Cancellation: </span>If the Client shall cancel this Agreement more than six (6) calendar days before the photo shooting day, any booking fee paid to the Photographer shall be refunded in full if the Photographer is able to re-book the same date. If the Photographer is NOT able to secure another client for the date, or if the cancellation occurs less than six (6) calendar days before the portrait date, the Client forfeits the booking fee.</li>

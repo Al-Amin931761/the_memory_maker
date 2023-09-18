@@ -43,7 +43,7 @@ const Prints = () => {
     };
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title="Prints"></PageTitle>
             <h1 className='second-font fw-bold text-center mb-3'><BsFillPrinterFill className='mb-1' /> Prints <BsFillPrinterFill className='mb-1' /></h1>
 

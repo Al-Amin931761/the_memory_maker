@@ -6,16 +6,16 @@ import travelImage from '../../../images/travel.png';
 
 const TravelDates = () => {
     return (
-        <div className='mt-5'>
+        <div className='mt-5' data-aos="fade-up" data-aos-duration="1000">
             <h1 className='text-center second-font fw-bold mb-2'><FaCalendarAlt className='mb-3' /> Travel Dates {new Date().getFullYear()} <FaCalendarAlt className='mb-3' /></h1>
 
             <div className='travel-dates-container'>
-                <div className='ms-1'>
+                <div className='ms-1' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <p>This year I am very fortunate to be traveling to so many incredible locations. If you live or will be visiting one of these locations and would like to schedule a session, please reach out <Link className='text-uppercase' to='/contact'>here</Link>.</p>
                     <img className='img-fluid' src={travelImage} alt="" />
                 </div>
 
-                <div className='months-and-locations me-1'>
+                <div className='months-and-locations me-1 w-100' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div>
                         <p>February 15-17</p>
                         <p>April 3-6</p>

@@ -7,10 +7,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
 import { GiShoppingCart } from 'react-icons/gi';
+import { AiOutlineHeart } from 'react-icons/ai';
 import useShoppingCart from '../../../hooks/useShoppingCart';
+import useWishlist from '../../../hooks/useWishlist';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+    const { myWishlistArray } = useWishlist();
     const { printQuantity } = useShoppingCart();
 
     const handleLogOut = () => {
@@ -19,7 +22,7 @@ const Header = () => {
     };
 
     return (
-        <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand as={Link} to="/">
                     <div className='d-flex align-items-center'>
@@ -44,8 +47,9 @@ const Header = () => {
                         {
                             user ? <span className='logout-button' onClick={handleLogOut}>Log Out</span> : <NavLink to="/login" className="link-styles">Login</NavLink>
                         }
-                        <NavLink to="/cart" className="link-styles cart-icon"><GiShoppingCart className='fs-3 pb-1' />
-                            <span className='quantity'>{printQuantity}</span></NavLink>
+                        <NavLink to="/myWishlist" className="link-styles cart-and-wishlist-icon"><AiOutlineHeart className='fs-3 pb-1' /><span className='quantity'>{(myWishlistArray.length) ? myWishlistArray.length : "0"}</span></NavLink>
+
+                        <NavLink to="/cart" className="link-styles cart-and-wishlist-icon"><GiShoppingCart className='fs-3 pb-1' /><span className='quantity'>{printQuantity}</span></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

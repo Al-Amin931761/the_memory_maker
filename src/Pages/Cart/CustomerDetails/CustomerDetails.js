@@ -18,7 +18,7 @@ const CustomerDetails = () => {
     if (details?.name) {
         button = <Link to='/checkout' className='btn btn-outline-dark'>Continue <HiOutlineArrowRight /></Link>
     } else {
-        button = <button className='btn btn-outline-dark' disabled>Continue <HiOutlineArrowRight /></button>
+        button = <button className='btn btn-dark' disabled>Continue <HiOutlineArrowRight /></button>
     }
 
     // form 
@@ -46,12 +46,12 @@ const CustomerDetails = () => {
     };
 
     return (
-        <div className='common-styles'>
+        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000" >
             <PageTitle title="Customer Details"></PageTitle>
             <h1 className="second-font text-center fw-bold mb-3">Customer Details</h1>
 
             <div className='customer-details-container'>
-                <form onSubmit={handleCustomerDetails}>
+                <form onSubmit={handleCustomerDetails} data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     {/* name */}
                     <div className="form-floating">
                         <input value={user?.displayName} type="text" className="form-control" id="name" placeholder="Name" required readOnly />
@@ -102,7 +102,7 @@ const CustomerDetails = () => {
                     <input type="submit" value="Submit" className='btn btn-outline-dark' />
                 </form>
 
-                <div className='inline-block order-summary'>
+                <div className='inline-block order-summary' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div>
                         <OrderSummary></OrderSummary>
                     </div>

@@ -59,11 +59,11 @@ const AddPrint = () => {
             </div>
 
             <div className='add-print-container'>
-                <div className='w-100'>
+                <div className='w-100' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <img className='img-fluid' src={photo} alt="" />
                 </div>
 
-                <form onSubmit={handleAddPrint} className='mt-5 w-100'>
+                <form onSubmit={handleAddPrint} className='mt-5 w-100' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     {/* image URL */}
                     <div className="form-floating ">
                         <input ref={imageRef} type="text" className="form-control" id="image-url" placeholder="Image URL" required />

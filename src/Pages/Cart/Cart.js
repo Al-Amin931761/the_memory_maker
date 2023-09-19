@@ -73,14 +73,14 @@ const Cart = () => {
             </Table>
 
             <div className='d-flex justify-content-center'>
-                <Link to='/customerDetails' className='btn btn-outline-dark'>Continue <HiOutlineArrowRight /></Link>
+                <Link to='/customerDetails' className='btn btn-outline-dark common-link mt-3'>Continue <HiOutlineArrowRight /></Link>
             </div>
         </div>
     } else {
 
         shoppingCart = <div className='d-flex flex-column align-items-center justify-content-center vh-100'>
             <p className='fs-4 mb-3'>You have nothing in your shopping cart.</p>
-            <Link to='/prints' className='btn btn-outline-dark'><BsArrowLeft className='me-1' style={{ marginBottom: '2px' }} />Continue Shopping</Link>
+            <Link to='/prints' className='btn btn-outline-dark common-link'><BsArrowLeft className='me-1' style={{ marginBottom: '2px' }} />Continue Shopping</Link>
         </div>
 
     }

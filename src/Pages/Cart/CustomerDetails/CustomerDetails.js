@@ -16,7 +16,7 @@ const CustomerDetails = () => {
     // continue button 
     let button;
     if (details?.name) {
-        button = <Link to='/checkout' className='btn btn-outline-dark'>Continue <HiOutlineArrowRight /></Link>
+        button = <Link to='/checkout' className='btn btn-outline-dark common-link'>Continue <HiOutlineArrowRight /></Link>
     } else {
         button = <button className='btn btn-dark' disabled>Continue <HiOutlineArrowRight /></button>
     }
@@ -99,7 +99,7 @@ const CustomerDetails = () => {
                         <input ref={phoneNumberRef} type="number" className="form-control" id="phone-number" placeholder="Phone Number" required />
                         <label htmlFor="phone-number">Phone Number</label>
                     </div>
-                    <input type="submit" value="Submit" className='btn btn-outline-dark' />
+                    <input type="submit" value="Submit" className='btn btn-outline-dark common-link' />
                 </form>
 
                 <div className='inline-block order-summary' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">

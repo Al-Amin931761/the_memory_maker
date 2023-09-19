@@ -8,7 +8,6 @@
   margin: 79.8px 10px 10px 10px;
 }
 
-
 .common-hover-effect {
   background-color: #fdfce56b;
   transition: 0.7s;
@@ -18,8 +17,6 @@
   background-color: #FDFCE5;
   transform: scale(1.05);
 }
-
-
 
 .second-font {
   font-family: 'Old Standard TT', serif;
@@ -36,4 +33,10 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+/* button */
+button,
+.common-link {
+  transition: 0.7s !important;
 }

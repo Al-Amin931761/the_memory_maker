@@ -25,7 +25,7 @@ const RandomPrints = ({ id }) => {
 
     return (
         <div>
-            <h2 className='second-font mb-3 text-center'>You may also like</h2>
+            <h2 className='second-font fw-bold mb-3 text-center'>You may also like</h2>
             <div className='prints-container'>
                 {
                     randomPrints.slice(0, 3).map(data => <RandomPrint key={data._id} data={data}></RandomPrint>)

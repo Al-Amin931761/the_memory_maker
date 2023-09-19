@@ -1,0 +1,13 @@
+.customer-review-container {
+    position: relative;
+}
+
+.update-review-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.edit-review textarea {
+    height: 150px !important;
+}

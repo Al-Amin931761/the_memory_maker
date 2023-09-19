@@ -17,8 +17,8 @@ const MyWishlist = () => {
         </div>
     } else {
         wishlist = <div className='d-flex flex-column align-items-center justify-content-center vh-100'>
-            <p className='fs-4 mb-3'>You have nothing in your wishlist.</p>
-            <Link to='/prints' className='btn btn-outline-dark'><BsArrowLeft className='me-1' style={{ marginBottom: '2px' }} />Back to Prints</Link>
+            <p className='fs-4 second-font mb-3'>You have nothing in your wishlist.</p>
+            <Link to='/prints' className='btn btn-outline-dark common-link'><BsArrowLeft className='me-1' style={{ marginBottom: '2px' }} />Back to Prints</Link>
         </div>
     }
 

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "independent-service-prov-e099d"
-  }
+    "default": "the-memory-maker-71efe",
+    "firebase init": "the-memory-maker-71efe"
+  },
+  "targets": {},
+  "etags": {}
 }

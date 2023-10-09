@@ -3,7 +3,6 @@ import './AddReview.css';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import Sidebar from '../Sidebar/Sidebar';
 import { StarPicker } from 'react-star-picker';
-import { Button } from 'react-bootstrap';
 import reviewImage from '../../../images/review.png';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -40,7 +39,7 @@ const AddReview = () => {
             today: `${date} ${month}${year}`
         }
 
-        fetch('http://localhost:5000/addReview', {
+        fetch('http://localhost:5000/review', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

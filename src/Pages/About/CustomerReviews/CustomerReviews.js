@@ -11,7 +11,7 @@ const CustomerReviews = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('http://localhost:5000/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [reviews])

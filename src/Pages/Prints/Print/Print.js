@@ -7,7 +7,7 @@ const Print = ({ data }) => {
 
     const navigate = useNavigate();
     const handleNavigate = () => {
-        navigate(`/printDetails/${_id}`);
+        navigate(`/prints/${_id}`);
     }
 
     return (

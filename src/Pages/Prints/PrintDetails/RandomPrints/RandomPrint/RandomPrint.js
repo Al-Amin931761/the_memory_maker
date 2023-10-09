@@ -5,7 +5,7 @@ const RandomPrint = ({ data }) => {
     const { _id, image, name } = data;
     const navigate = useNavigate();
     const handleNavigate = () => {
-        navigate(`/printDetails/${_id}`);
+        navigate(`/prints/${_id}`);
     }
     return (
         <div className='print-container common-hover-effect border border-2 rounded-bottom' onClick={handleNavigate}>

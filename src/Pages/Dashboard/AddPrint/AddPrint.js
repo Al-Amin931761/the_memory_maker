@@ -25,7 +25,7 @@ const AddPrint = () => {
             location: location
         };
 
-        fetch('http://localhost:5000/allPrint', {
+        fetch('http://localhost:5000/addPrint', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

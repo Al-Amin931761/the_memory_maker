@@ -53,8 +53,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/prints/:id',
-                element: <PrivateRoute><PrintDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/prints/${params.id}`)
+                element: <PrivateRoute><PrintDetails /></PrivateRoute>
             },
             {
                 path: '/login',

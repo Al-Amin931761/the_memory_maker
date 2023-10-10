@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './PrintDetails.css';
 import { ImLocation2 } from 'react-icons/im';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
-import { Button, FloatingLabel, Form } from 'react-bootstrap';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { FloatingLabel, Form } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import PageTitle from '../../Shared/PageTitle/PageTitle';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -16,7 +16,21 @@ import { signOut } from 'firebase/auth';
 
 const PrintDetails = () => {
     const [user] = useAuthState(auth);
-    const printData = useLoaderData();
+    const [printData, setPrintData] = useState([]);
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/prints/${id}`)
+            .then(res => {
+                if (res.status === 404) {
+                    navigate('404');
+                }
+                return res.json();
+            })
+            .then(data => setPrintData(data))
+    }, [id, navigate])
+
     const { image, name, location, _id } = printData;
     const [price, setPrice] = useState(150);
     const { userInfo } = useWishlist();
@@ -87,7 +101,6 @@ const PrintDetails = () => {
     };
 
     // wishlist 
-    const navigate = useNavigate();
     const handleAddToWishlist = (id) => {
         let arrayOfWishlistIds;
         if (userInfo.arrayOfWishlistIds) {

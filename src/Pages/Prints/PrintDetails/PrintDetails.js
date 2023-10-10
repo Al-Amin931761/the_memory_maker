@@ -21,7 +21,7 @@ const PrintDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/prints/${id}`)
+        fetch(`https://the-memory-maker-server.vercel.app/prints/${id}`)
             .then(res => {
                 if (res.status === 404) {
                     navigate('404');
@@ -66,7 +66,7 @@ const PrintDetails = () => {
                 quantity: quantity,
                 sizeAndMedium: sizeAndMedium
             }
-            fetch(`http://localhost:5000/temporaryData/${user?.email}`, {
+            fetch(`https://the-memory-maker-server.vercel.app/temporaryData/${user?.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -90,7 +90,7 @@ const PrintDetails = () => {
 
         // delete users temporary data
         setTimeout(() => {
-            fetch(`http://localhost:5000/temporaryData/${user?.email}`, {
+            fetch(`https://the-memory-maker-server.vercel.app/temporaryData/${user?.email}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -108,7 +108,7 @@ const PrintDetails = () => {
         } else {
             arrayOfWishlistIds = [id]
         }
-        fetch(`http://localhost:5000/myWishlist/${user?.email}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/myWishlist/${user?.email}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',

@@ -35,7 +35,7 @@ const CheckoutForm = () => {
         if (!grandTotal || !details?.email) {
             navigate('/cart');
         } else {
-            fetch(`http://localhost:5000/create-payment-intent`, {
+            fetch(`https://the-memory-maker-server.vercel.app/create-payment-intent`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -109,7 +109,7 @@ const CheckoutForm = () => {
             details.status = 'Pending'
 
             // save the order to the database 
-            fetch(`http://localhost:5000/orders`, {
+            fetch(`https://the-memory-maker-server.vercel.app/orders`, {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -121,7 +121,7 @@ const CheckoutForm = () => {
                     if (data.insertedId) {
                         toast.success('Payment successful!');
 
-                        fetch(`http://localhost:5000/temporaryData/${details.email}`, {
+                        fetch(`https://the-memory-maker-server.vercel.app/temporaryData/${details.email}`, {
                             method: 'DELETE',
                         })
                             .then(res => res.json())

@@ -7,7 +7,7 @@ import PageTitle from '../Shared/PageTitle/PageTitle';
 
 const Packages = () => {
     useEffect(() => {
-        fetch("http://localhost:5000/packages")
+        fetch("https://the-memory-maker-server.vercel.app/packages")
             .then(res => res.json())
             .then(data => setPackages(data))
     }, []);

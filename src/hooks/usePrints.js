@@ -4,7 +4,7 @@ const usePrints = () => {
     const [allPrint, setAllPrint] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allPrint`)
+        fetch(`https://the-memory-maker-server.vercel.app/allPrint`)
             .then(res => res.json())
             .then(data => setAllPrint(data))
     }, [allPrint]);

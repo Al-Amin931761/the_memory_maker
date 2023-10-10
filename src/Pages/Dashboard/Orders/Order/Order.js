@@ -11,7 +11,7 @@ const Order = ({ data, index }) => {
     // update status 
     const navigate = useNavigate('');
     const handleStatus = (id) => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/orders/${id}`, {
             method: "PATCH",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

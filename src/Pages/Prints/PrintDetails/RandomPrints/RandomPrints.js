@@ -6,7 +6,7 @@ const RandomPrints = ({ id }) => {
 
     // load prints data from database
     useEffect(() => {
-        fetch(`http://localhost:5000/allPrint`)
+        fetch(`https://the-memory-maker-server.vercel.app/allPrint`)
             .then(res => res.json())
             .then(data => setPrints(data))
     }, []);

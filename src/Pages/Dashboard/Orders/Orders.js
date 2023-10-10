@@ -13,7 +13,7 @@ const Orders = () => {
 
     const navigate = useNavigate('');
     useEffect(() => {
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://the-memory-maker-server.vercel.app/orders`, {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

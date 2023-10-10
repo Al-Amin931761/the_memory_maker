@@ -14,7 +14,7 @@ const Prints = () => {
 
     // load prints data 
     useEffect(() => {
-        fetch(`http://localhost:5000/prints?page=${currentPage}&limit=${printPerPage}`)
+        fetch(`https://the-memory-maker-server.vercel.app/prints?page=${currentPage}&limit=${printPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setPrints(data.prints)

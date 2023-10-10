@@ -34,7 +34,7 @@ const ManagePrint = ({ data, index }) => {
         const location = locationRef.current.value;
         const updatedPrint = { image, name, location }
 
-        fetch(`http://localhost:5000/allPrint/${printId}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/allPrint/${printId}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json',
@@ -77,7 +77,7 @@ const ManagePrint = ({ data, index }) => {
 
     // delete print 
     const handleDeletePrint = () => {
-        fetch(`http://localhost:5000/allPrint/${printId}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/allPrint/${printId}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

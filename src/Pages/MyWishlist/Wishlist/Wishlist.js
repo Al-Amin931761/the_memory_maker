@@ -20,7 +20,7 @@ const Wishlist = ({ data }) => {
         if (userInfo.arrayOfWishlistIds) {
             const arrayOfWishlistIds = userInfo.arrayOfWishlistIds.filter(wishlistId => wishlistId !== id);
 
-            fetch(`http://localhost:5000/myWishlist/${user?.email}`, {
+            fetch(`https://the-memory-maker-server.vercel.app/myWishlist/${user?.email}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json',

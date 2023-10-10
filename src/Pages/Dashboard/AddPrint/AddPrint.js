@@ -25,7 +25,7 @@ const AddPrint = () => {
             location: location
         };
 
-        fetch('http://localhost:5000/addPrint', {
+        fetch('https://the-memory-maker-server.vercel.app/addPrint', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

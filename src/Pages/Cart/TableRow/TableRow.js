@@ -6,7 +6,7 @@ const TableRow = ({ data, index }) => {
     const { image, name, price, _id, quantity, sizeAndMedium } = data;
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/temporaryCartData/${id}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/temporaryCartData/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

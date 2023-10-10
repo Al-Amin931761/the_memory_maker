@@ -38,7 +38,7 @@ const MyProfile = () => {
             image: profilePicture
         }
 
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/user/${email}`, {
             method: 'PATCH',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -64,7 +64,7 @@ const MyProfile = () => {
 
     // load profile data
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user?.email}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/user/${user?.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

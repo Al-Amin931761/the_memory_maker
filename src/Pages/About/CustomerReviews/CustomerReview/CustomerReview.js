@@ -39,7 +39,7 @@ const CustomerReview = ({ data }) => {
         event.preventDefault();
         const review = reviewRef.current.value;
         if (reviewId) {
-            fetch(`http://localhost:5000/review/${reviewId}`, {
+            fetch(`https://the-memory-maker-server.vercel.app/review/${reviewId}`, {
                 method: "PATCH",
                 headers: {
                     'content-type': 'application/json',
@@ -63,7 +63,7 @@ const CustomerReview = ({ data }) => {
 
     // delete review 
     const handleDeleteReview = () => {
-        fetch(`http://localhost:5000/review/${reviewId}`, {
+        fetch(`https://the-memory-maker-server.vercel.app/review/${reviewId}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

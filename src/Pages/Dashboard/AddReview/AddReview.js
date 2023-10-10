@@ -39,7 +39,7 @@ const AddReview = () => {
             today: `${date} ${month}${year}`
         }
 
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://the-memory-maker-server.vercel.app/addReview', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

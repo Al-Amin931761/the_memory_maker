@@ -14,7 +14,7 @@ const useWishlist = () => {
     // load user info 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/myWishlist/${user?.email}`, {
+            fetch(`https://the-memory-maker-server.vercel.app/myWishlist/${user?.email}`, {
                 method: "GET",
             })
                 .then(res => {

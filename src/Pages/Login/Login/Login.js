@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { Button } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -81,12 +80,12 @@ const Login = () => {
 
                 <div className='login-container'>
                     {/* image  */}
-                    <div className='login-image' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
+                    <div className='login-image' data-aos="fade-right" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                         <img className='img-fluid' src={loginImage} alt="" />
                     </div>
 
                     {/* form  */}
-                    <div className='login' data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
+                    <div className='login' data-aos="fade-left" data-aos-offset="100" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                         <form onSubmit={handleLogin}>
                             <div className="form-floating mb-3">
                                 <input ref={emailRef} type="email" className="form-control" id="email-address" placeholder="Email Address" required />

@@ -134,7 +134,7 @@ const PrintDetails = () => {
     };
 
     return (
-        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
+        <div data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title='Print Details'></PageTitle>
             <h1 className='text-center fw-bold second-font mb-3'><BsFillPrinterFill className='mb-1' /> Print Details <BsFillPrinterFill className='mb-1' /></h1>
 
@@ -181,10 +181,12 @@ const PrintDetails = () => {
                 </div>
             </div>
 
-            {/* random prints */}
-            <hr className='mb-4 mt-5' />
-            <div data-aos="fade-up" data-aos-duration="1000">
-                <RandomPrints id={_id} />
+            <div className='common-styles'>
+                {/* random prints */}
+                <hr className='mb-4 mt-5' />
+                <div data-aos="fade-up" data-aos-duration="1000">
+                    <RandomPrints id={_id} />
+                </div>
             </div>
         </div>
     );

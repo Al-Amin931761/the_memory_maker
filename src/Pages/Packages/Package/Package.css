@@ -1,6 +1,15 @@
 .package {
     margin: 0 20px 20px 20px;
-    padding: 20px;
+    padding: 5px;
     border-radius: 10px;
     text-align: center;
+}
+
+@media only screen and (max-width:576px) {
+    .package {
+        margin: 0 2px 20px 2px;
+        padding: 5px;
+        border-radius: 10px;
+        text-align: center;
+    }
 }

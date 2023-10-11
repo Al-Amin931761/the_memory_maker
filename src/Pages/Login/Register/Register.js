@@ -92,7 +92,7 @@ const Register = () => {
                     <img className='img-fluid' src={registerImage} alt="" />
                 </div>
 
-                <div className="register" data-aos="fade-left" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">
+                <div className="register" data-aos="fade-left" data-aos-offset="100" data-aos-duration="1500" data-aos-easing="ease-in-sine">
                     <div>
                         <form onSubmit={handleRegister}>
 

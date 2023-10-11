@@ -14,7 +14,7 @@ const Package = ({ data }) => {
             <h2 className='second-font'>{name}</h2>
             <h4>{price}</h4>
             <p>{description}</p>
-            <Link to='/contact'><Button variant="outline-dark text-uppercase second-font">Request a session <BsArrowRight style={{ marginBottom: '2px' }} /></Button></Link>
+            <Link to='/contact'><Button variant="outline-dark text-uppercase second-font mb-3">Request a session <BsArrowRight style={{ marginBottom: '2px' }} /></Button></Link>
         </div>
     );
 };

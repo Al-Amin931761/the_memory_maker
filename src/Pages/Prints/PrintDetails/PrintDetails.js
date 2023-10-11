@@ -181,7 +181,7 @@ const PrintDetails = () => {
                 </div>
             </div>
 
-            <hr className='mb-4 mt-5' />
+            <hr className='mb-5 mt-5' />
             <div style={{ margin: "0px 10px 10px 10px" }}>
                 {/* random prints */}
                 <div data-aos="fade-up" data-aos-duration="1000">

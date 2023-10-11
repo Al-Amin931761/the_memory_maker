@@ -181,9 +181,9 @@ const PrintDetails = () => {
                 </div>
             </div>
 
-            <div className='common-styles'>
+            <hr className='mb-4 mt-5' />
+            <div style={{ margin: "0px 10px 10px 10px" }}>
                 {/* random prints */}
-                <hr className='mb-4 mt-5' />
                 <div data-aos="fade-up" data-aos-duration="1000">
                     <RandomPrints id={_id} />
                 </div>

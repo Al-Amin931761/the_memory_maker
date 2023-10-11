@@ -136,7 +136,7 @@ const PrintDetails = () => {
     return (
         <div data-aos="fade-up" data-aos-duration="1000">
             <PageTitle title='Print Details'></PageTitle>
-            <h1 className='text-center fw-bold second-font mb-3'><BsFillPrinterFill className='mb-1' /> Print Details <BsFillPrinterFill className='mb-1' /></h1>
+            <h1 className='text-center fw-bold second-font mb-3 common-styles'><BsFillPrinterFill className='mb-1' /> Print Details <BsFillPrinterFill className='mb-1' /></h1>
 
             <div className='print-details-container'>
                 <div className='print-image ms-1' data-aos="fade-right" data-aos-offset="300" data-aos-duration="1500" data-aos-easing="ease-in-sine">

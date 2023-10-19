@@ -26,4 +26,4 @@ Welcome to The Memory Maker. It is a photographer's website. This repository con
 
 ##
 Live site: [The Memory Maker](https://the-memory-maker-71efe.firebaseapp.com) <br>
-Server site code: [The Memory Maker Server](https://github.com/alamin931761/the-memory-maker-server)
+Server side code: [The Memory Maker Server](https://github.com/alamin931761/the-memory-maker-server)

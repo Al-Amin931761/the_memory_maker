@@ -1,34 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import './Packages.css';
+import { useEffect, useState } from "react";
+import "./Packages.css";
 import { FaCamera } from "react-icons/fa";
-import Package from './Package/Package';
-import Loading from '../Shared/Loading/Loading';
-import PageTitle from '../Shared/PageTitle/PageTitle';
+import Package from "./Package/Package";
+import PageTitle from "../../components/shared/PageTitle";
+import SectionTitle from "../../components/shared/SectionTitle";
+import Loading from "../../components/Loading";
+import Container from "../../components/Container";
 
 const Packages = () => {
-    useEffect(() => {
-        fetch("https://the-memory-maker-server.vercel.app/packages")
-            .then(res => res.json())
-            .then(data => setPackages(data))
-    }, []);
+  const [packages, setPackages] = useState([]);
 
-    const [packages, setPackages] = useState([]);
-    if (packages.length === 0) {
-        return <Loading></Loading>;
-    };
+  useEffect(() => {
+    fetch("https://the-memory-maker-server.vercel.app/packages")
+      .then((res) => res.json())
+      .then((data) => setPackages(data));
+  }, []);
 
-    return (
-        <div className='common-styles' data-aos="fade-up" data-aos-duration="1000">
-            <PageTitle title="Packages"></PageTitle>
-            <h1 className='mb-3 text-center fw-bold second-font'><FaCamera className='mb-2' />  Packages ({packages.length}) <FaCamera className='mb-2' /> </h1>
+  if (packages.length === 0) {
+    return <Loading />;
+  }
 
-            <div className='packages'>
-                {
-                    packages.map(data => <Package key={data._id} data={data}></Package>)
-                }
-            </div>
+  return (
+    <Container>
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <PageTitle title="Packages" />
+
+        <SectionTitle
+          title={`Packages (${packages.length})`}
+          icon={<FaCamera className="mb-2" />}
+        />
+
+        <div className="packages">
+          {packages.map((data) => (
+            <Package key={data._id} data={data} />
+          ))}
         </div>
-    );
+      </div>
+    </Container>
+  );
 };
 
 export default Packages;

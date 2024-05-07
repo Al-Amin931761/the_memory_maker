@@ -1,26 +1,22 @@
 /* responsive */
-@media only screen and (max-width:991px) {
-    .reviews {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    }
+@media only screen and (max-width: 991px) {
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    .review {
-        margin: 0 30px 30px 30px;
-    }
-
-    .review:hover {
-        margin: 0 30px 30px 30px;
-    }
+  .review {
+    margin: 0 30px 30px 30px;
+  }
 }
 
-@media only screen and (min-width:992px) {
-    .reviews {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media only screen and (min-width: 992px) {
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .review {
-        margin: 0 30px 30px 30px;
-    }
+  .review {
+    margin: 0 30px 30px 30px;
+  }
 }

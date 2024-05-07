@@ -1,0 +1,35 @@
+.link-styles {
+  text-decoration: none;
+  color: grey;
+  margin-right: 20px;
+  transition: 0.5s;
+}
+
+.logout-button {
+  color: grey;
+  transition: 0.5s;
+  margin-right: 20px;
+}
+
+.link-styles:hover,
+.logout-button:hover {
+  color: white;
+}
+
+/* active link */
+.active {
+  color: white;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+/* cart icon and wishlist icon */
+.cart-and-wishlist-icon {
+  position: relative;
+}
+
+.quantity {
+  font-size: 10px;
+  position: absolute;
+  top: 0px;
+}

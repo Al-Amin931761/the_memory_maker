@@ -1,12 +1,12 @@
 .app {
-  font-family: 'Roboto Serif', serif;
-  background-color: #F8FCFB;
-  overflow-x: hidden
+  font-family: "Roboto Serif", serif;
+  background-color: #f8fcfb;
+  overflow-x: hidden;
 }
 
-.common-styles {
+/* .common-styles {
   margin: 79.8px 10px 10px 10px;
-}
+} */
 
 .common-hover-effect {
   background-color: #fdfce56b;
@@ -14,12 +14,12 @@
 }
 
 .common-hover-effect:hover {
-  background-color: #FDFCE5;
+  background-color: #fdfce5;
   transform: scale(1.05);
 }
 
 .second-font {
-  font-family: 'Old Standard TT', serif;
+  font-family: "Old Standard TT", serif;
 }
 
 /*----Remove Arrows/Spinners----*/
@@ -31,7 +31,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 

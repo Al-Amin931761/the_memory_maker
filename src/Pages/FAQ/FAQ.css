@@ -1,19 +1,19 @@
 .faq-container {
-    margin: 0 30px;
+  margin-bottom: 30px;
 }
 
 @media only screen and (min-width: 992px) {
-    .faq-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 30px;
-    }
+  .faq-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+  }
 }
 
 @media only screen and (max-width: 991px) {
-    .faq-container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
-    }
+  .faq-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+  }
 }

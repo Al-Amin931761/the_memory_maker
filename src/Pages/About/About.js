@@ -1,7 +1,7 @@
 import image from "../../images/my-image.png";
-import CustomerReviews from "./CustomerReviews/CustomerReviews";
 import PageTitle from "../../components/shared/PageTitle";
 import Container from "../../components/Container";
+import CustomerReviews from "./CustomerReviews/CustomerReviews";
 
 const About = () => {
   return (

@@ -1,0 +1,26 @@
+@media only screen and (min-width: 992px) {
+  .print-details-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  .print-details-container img {
+    max-height: 500px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .print-details-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+  }
+
+  .print-details-container img {
+    max-height: 300px;
+  }
+}
+
+.quantity-input {
+  width: 100px;
+}

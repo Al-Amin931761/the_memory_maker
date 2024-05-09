@@ -1,10 +1,4 @@
-const Textarea = ({
-  name,
-  register,
-  disabled = false,
-  placeholder,
-  errors,
-}) => {
+const Textarea = ({ name, register, placeholder, errors }) => {
   return (
     <div className={`form-floating mb-3 message`}>
       <textarea
@@ -13,7 +7,6 @@ const Textarea = ({
         className="form-control"
         placeholder={placeholder}
         id={name}
-        disabled={disabled}
       />
       <label htmlFor={name}>{placeholder}</label>
 

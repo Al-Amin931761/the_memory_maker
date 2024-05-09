@@ -1,15 +1,21 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./AddReview.css";
-import Sidebar from "../Sidebar/Sidebar";
 import { StarPicker } from "react-star-picker";
 import reviewImage from "../../../images/review.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import PageTitle from "../../../components/shared/PageTitle";
 import Container from "../../../components/Container";
+import SectionTitle from "../../../components/shared/SectionTitle";
+import Form from "../../../components/reusableForm/Form";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { addAndUpdateReviewSchema } from "../../../components/reusableForm/Validation";
+import Textarea from "../../../components/reusableForm/Textarea";
+import FormSubmit from "../../../components/reusableForm/FormSubmit";
+import Sidebar from "../../../components/shared/Sidebar/Sidebar";
 
 const AddReview = () => {
   const [rating, setRating] = useState(null);
@@ -20,11 +26,14 @@ const AddReview = () => {
     setRating(value);
   };
 
-  const navigate = useNavigate("");
-  const reviewRef = useRef("");
-  const handleReview = (event) => {
-    event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(addAndUpdateReviewSchema) });
 
+  const handleAddReview = (data) => {
     // date
     const today = new Date();
     const months = [
@@ -49,7 +58,7 @@ const AddReview = () => {
       name: user?.displayName,
       email: user?.email,
       rating: rating,
-      review: reviewRef.current.value,
+      review: data.review,
       today: `${date} ${month} ${year}`,
     };
 
@@ -71,15 +80,12 @@ const AddReview = () => {
       .then((data) => {
         if (data.acknowledged) {
           toast.success("Review submitted successfully");
-          setTimeout(() => {
-            navigate("/about");
-          }, 5000);
         } else {
           toast.error("Review was not successfully submitted");
         }
       });
     setRating(null);
-    event.target.reset();
+    reset();
   };
 
   return (
@@ -87,9 +93,10 @@ const AddReview = () => {
       <PageTitle title="Add Review" />
       <div className="d-flex align-items-center">
         <Sidebar />
-        <h1 className="title-margin second-font fw-bold mb-3">
-          Leave a Review
-        </h1>
+
+        <div className="w-100">
+          <SectionTitle title="Leave a Review" />
+        </div>
       </div>
 
       <div className="review-container">
@@ -103,51 +110,42 @@ const AddReview = () => {
           <img className="img-fluid" src={reviewImage} alt="" />
         </div>
 
-        {/* review and ratings */}
+        {/* review */}
         <div
-          className="review-and-ratings"
+          className="w-100 d-flex flex-column justify-content-center"
           data-aos="fade-left"
           data-aos-offset="300"
           data-aos-duration="1500"
           data-aos-easing="ease-in-sine"
         >
-          {/* ratings */}
-          <div className="my-3 d-flex flex-column align-items-center mt-3">
-            <p className="mb-0">Click stars to rate</p>
-            <StarPicker
-              onChange={onChange}
-              value={rating}
-              halfStars
-              doubleTapResets={true}
-              numberStars={5}
-              size={60}
-            />
-          </div>
-
-          {/* review */}
-          <form onSubmit={handleReview} className="review w-100 px-3">
-            <div className="form-floating w-100">
-              <textarea
-                ref={reviewRef}
-                className="form-control w-100"
-                placeholder="Leave a comment here"
-                id="review"
-                required
+          <div className=" d-flex flex-column">
+            <div className="mb-3">
+              <p className="mb-0 ms-2">Click stars to rate</p>
+              <StarPicker
+                onChange={onChange}
+                value={rating}
+                halfStars
+                doubleTapResets={true}
+                numberStars={5}
+                size={60}
               />
-              <label htmlFor="review">Review content</label>
             </div>
-            <div className="my-3 d-flex justify-content-center">
-              <button
-                className={`py-2 ${
-                  !rating ? "btn btn-dark" : "btn btn-outline-dark"
-                }`}
+
+            <Form onSubmit={handleSubmit(handleAddReview)}>
+              <Textarea
+                name="review"
+                register={register("review")}
+                placeholder="Review content"
+                errors={errors}
+              />
+              <FormSubmit
                 disabled={!rating}
-                type="submit"
+                variant={!rating ? "dark" : "outline-dark"}
               >
-                Submit Your Review
-              </button>
-            </div>
-          </form>
+                add review
+              </FormSubmit>
+            </Form>
+          </div>
         </div>
       </div>
     </Container>

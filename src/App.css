@@ -4,10 +4,6 @@
   overflow-x: hidden;
 }
 
-/* .common-styles {
-  margin: 79.8px 10px 10px 10px;
-} */
-
 .common-hover-effect {
   background-color: #fdfce56b;
   transition: 0.7s;
@@ -36,7 +32,6 @@ input[type="number"] {
 }
 
 /* button */
-button,
-.common-link {
+button {
   transition: 0.7s !important;
 }

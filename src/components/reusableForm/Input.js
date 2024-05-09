@@ -1,6 +1,15 @@
-const Input = ({ name, type, placeholder, register, errors }) => {
+const Input = ({
+  name,
+  type,
+  placeholder,
+  register,
+  errors,
+  className = "mb-3",
+  value = undefined,
+  disabled = false,
+}) => {
   return (
-    <div className="form-floating mb-3">
+    <div className={`form-floating ${className}`}>
       <input
         {...register}
         name={name}
@@ -8,6 +17,8 @@ const Input = ({ name, type, placeholder, register, errors }) => {
         className="form-control"
         id={name}
         placeholder={placeholder}
+        value={value}
+        disabled={disabled}
       />
       <label htmlFor={name}>{placeholder}</label>
 

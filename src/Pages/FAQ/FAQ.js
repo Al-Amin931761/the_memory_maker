@@ -6,11 +6,7 @@ import Container from "../../components/Container";
 const FAQ = () => {
   return (
     <Container>
-      <div
-        className="common-styles"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      >
+      <div className=" " data-aos="fade-up" data-aos-duration="1000">
         <PageTitle title="Frequently Asked Questions" />
         <h1 className="text-center second-font fw-bold mb-3">
           Frequently Asked Questions

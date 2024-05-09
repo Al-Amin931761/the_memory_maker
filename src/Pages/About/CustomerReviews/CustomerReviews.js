@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import "./CustomerReviews.css";
 import { BsPeopleFill } from "react-icons/bs";
 import CustomerReview from "./CustomerReview/CustomerReview";
-import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
+import LinkButton from "../../../components/LinkButton";
 import auth from "../../../firebase.init";
 import SectionTitle from "../../../components/shared/SectionTitle";
-import LinkButton from "../../../components/LinkButton";
 
 const CustomerReviews = () => {
   const [reviews, setReviews] = useState([]);

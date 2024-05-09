@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 
-const FormSubmit = ({ children, disabled = false, className, variant }) => {
+const FormSubmit = ({ children, disabled = false, variant }) => {
   return (
     <Button
       type="submit"

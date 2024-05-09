@@ -1,8 +1,8 @@
-import Photography from "./Photography";
-import TravelDates from "./TravelDates/TravelDates";
-import HeroSection from "./HeroSection/HeroSection";
 import PageTitle from "../../components/shared/PageTitle";
 import Container from "../../components/Container";
+import Photography from "./Photography";
+import HeroSection from "./HeroSection/HeroSection";
+import TravelDates from "./TravelDates/TravelDates";
 
 const Home = () => {
   return (

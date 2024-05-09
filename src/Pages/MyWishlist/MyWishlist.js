@@ -1,8 +1,10 @@
 import useWishlist from "../../hooks/useWishlist";
-import Wishlist from "./Wishlist/Wishlist";
-import { Link } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import PageTitle from "../../components/shared/PageTitle";
+import SectionTitle from "../../components/shared/SectionTitle";
+import Container from "../../components/Container";
+import LinkButton from "../../components/LinkButton";
+import Wishlist from "./Wishlist";
 
 const MyWishlist = () => {
   const { myWishlistArray } = useWishlist();
@@ -12,33 +14,37 @@ const MyWishlist = () => {
     wishlist = (
       <div className="prints-container">
         {myWishlistArray?.map((data) => (
-          <Wishlist key={data._id} data={data}></Wishlist>
+          <Wishlist key={data._id} data={data} />
         ))}
       </div>
     );
   } else {
     wishlist = (
-      <div className="d-flex flex-column align-items-center justify-content-center vh-100">
+      <div className="d-flex flex-column align-items-center justify-content-center">
         <p className="fs-4 second-font mb-3">
           You have nothing in your wishlist.
         </p>
-        <Link to="/prints" className="btn btn-outline-dark common-link">
-          <BsArrowLeft className="me-1" style={{ marginBottom: "2px" }} />
-          Back to Prints
-        </Link>
+
+        <LinkButton
+          to="/prints"
+          variant="outline-dark"
+          name="Back to Prints"
+          icon={<BsArrowLeft className="mb-1" />}
+          leftIcon={true}
+        />
       </div>
     );
   }
 
   return (
-    <div className="common-styles" data-aos="fade-up" data-aos-duration="1000">
-      <PageTitle title="My Wishlist" />
-      <h1 className="text-center second-font fw-bold mb-3">
-        My Wishlist ({myWishlistArray.length})
-      </h1>
+    <Container>
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <PageTitle title="My Wishlist" />
+        <SectionTitle title={`My Wishlist (${myWishlistArray.length})`} />
 
-      {wishlist}
-    </div>
+        {wishlist}
+      </div>
+    </Container>
   );
 };
 

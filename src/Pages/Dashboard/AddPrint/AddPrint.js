@@ -1,28 +1,32 @@
-import { useRef } from "react";
-import Sidebar from "../Sidebar/Sidebar";
-import { Button } from "react-bootstrap";
+import Sidebar from "../../../components/shared/Sidebar/Sidebar";
 import photo from "../../../images/add-photo.png";
 import "./AddPrint.css";
 import { signOut } from "firebase/auth";
 import auth from "../../../firebase.init";
 import { toast } from "react-toastify";
 import PageTitle from "../../../components/shared/PageTitle";
+import Container from "../../../components/Container";
+import SectionTitle from "../../../components/shared/SectionTitle";
+import Form from "../../../components/reusableForm/Form";
+import Input from "../../../components/reusableForm/Input";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import FormSubmit from "../../../components/reusableForm/FormSubmit";
+import { addAndUpdatePrintSchema } from "../../../components/reusableForm/Validation";
 
 const AddPrint = () => {
-  const nameRef = useRef("");
-  const imageRef = useRef("");
-  const locationRef = useRef("");
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({ resolver: zodResolver(addAndUpdatePrintSchema) });
 
-  const handleAddPrint = (event) => {
-    event.preventDefault();
-    const name = nameRef.current.value;
-    const image = imageRef.current.value;
-    const location = locationRef.current.value;
-
+  const handleAddPrint = (data) => {
     const printData = {
-      name: name,
-      image: image,
-      location: location,
+      name: data.name,
+      image: data.imageURL,
+      location: data.location,
     };
 
     fetch("https://the-memory-maker-server.vercel.app/addPrint", {
@@ -47,15 +51,18 @@ const AddPrint = () => {
           toast.error("Print was not successfully added");
         }
       });
-    event.target.reset();
+    reset();
   };
 
   return (
-    <div className="common-styles">
+    <Container>
       <PageTitle title="Add Print" />
       <div className="d-flex align-items-center">
         <Sidebar />
-        <h1 className="title-margin second-font fw-bold mb-3">Add Print</h1>
+
+        <div className="w-100">
+          <SectionTitle title="Add Print" />
+        </div>
       </div>
 
       <div className="add-print-container">
@@ -69,59 +76,45 @@ const AddPrint = () => {
           <img className="img-fluid" src={photo} alt="" />
         </div>
 
-        <form
-          onSubmit={handleAddPrint}
-          className="mt-5 w-100"
+        <div
           data-aos="fade-left"
           data-aos-offset="300"
           data-aos-duration="1500"
           data-aos-easing="ease-in-sine"
         >
-          {/* image URL */}
-          <div className="form-floating ">
-            <input
-              ref={imageRef}
+          <Form onSubmit={handleSubmit(handleAddPrint)}>
+            {/* name */}
+            <Input
+              register={register("name")}
+              name="name"
               type="text"
-              className="form-control"
-              id="image-url"
-              placeholder="Image URL"
-              required
-            />
-            <label htmlFor="image-url">Image URL</label>
-          </div>
-
-          {/* name */}
-          <div className="form-floating my-3">
-            <input
-              ref={nameRef}
-              type="text"
-              className="form-control"
-              id="name"
               placeholder="Name"
-              required
+              errors={errors}
             />
-            <label htmlFor="name">Name</label>
-          </div>
 
-          {/* email */}
-          <div className="form-floating mb-3">
-            <input
-              ref={locationRef}
+            {/* image url */}
+            <Input
+              register={register("imageURL")}
+              name="imageURL"
               type="text"
-              className="form-control"
-              id="email-address"
-              placeholder="Email"
-              required
+              placeholder="Image URL"
+              errors={errors}
             />
-            <label htmlFor="email-address">Location</label>
-          </div>
 
-          <Button variant="outline-dark" type="submit">
-            Add Print
-          </Button>
-        </form>
+            {/* location */}
+            <Input
+              register={register("location")}
+              name="location"
+              type="location"
+              placeholder="Location"
+              errors={errors}
+            />
+
+            <FormSubmit variant="outline-dark">Add Print</FormSubmit>
+          </Form>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

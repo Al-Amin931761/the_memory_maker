@@ -1,20 +1,23 @@
-import Sidebar from "../Sidebar/Sidebar";
 import { Table } from "react-bootstrap";
-import ManagePrint from "./ManagePrint/ManagePrint";
 import usePrints from "../../../hooks/usePrints";
 import PageTitle from "../../../components/shared/PageTitle";
+import Sidebar from "../../../components/shared/Sidebar/Sidebar";
+import Container from "../../../components/Container";
+import SectionTitle from "../../../components/shared/SectionTitle";
+import ManagePrint from "./ManagePrint";
 
 const ManagePrints = () => {
   const { allPrint } = usePrints();
 
   return (
-    <div className="common-styles">
+    <Container>
       <PageTitle title="Manage Prints" />
       <div className="d-flex align-items-center">
         <Sidebar />
-        <h1 className="title-margin second-font fw-bold mb-3">
-          Manage Prints ({allPrint.length})
-        </h1>
+
+        <div className="w-100">
+          <SectionTitle title={`Manage Prints (${allPrint.length})`} />
+        </div>
       </div>
 
       <div data-aos="fade-down" data-aos-duration="2000">
@@ -31,16 +34,12 @@ const ManagePrints = () => {
           </thead>
           <tbody>
             {allPrint.map((data, index) => (
-              <ManagePrint
-                key={data._id}
-                data={data}
-                index={index}
-              ></ManagePrint>
+              <ManagePrint key={data._id} data={data} index={index} />
             ))}
           </tbody>
         </Table>
       </div>
-    </div>
+    </Container>
   );
 };
 

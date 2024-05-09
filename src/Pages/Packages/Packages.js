@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./Packages.css";
 import { FaCamera } from "react-icons/fa";
-import Package from "./Package/Package";
 import PageTitle from "../../components/shared/PageTitle";
 import SectionTitle from "../../components/shared/SectionTitle";
 import Loading from "../../components/Loading";
 import Container from "../../components/Container";
+import Package from "./Package/Package";
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);

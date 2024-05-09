@@ -14,6 +14,7 @@
 .link-styles:hover,
 .logout-button:hover {
   color: white;
+  cursor: pointer;
 }
 
 /* active link */
@@ -21,6 +22,10 @@
   color: white;
   margin-right: 20px;
   text-decoration: none;
+}
+
+.active:hover {
+  color: white;
 }
 
 /* cart icon and wishlist icon */

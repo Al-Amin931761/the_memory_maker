@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import "./Prints.css";
-import Print from "./Print/Print";
 import { FloatingLabel, Form } from "react-bootstrap";
 import { BsFillPrinterFill } from "react-icons/bs";
 import PageTitle from "../../components/shared/PageTitle";
 import SectionTitle from "../../components/shared/SectionTitle";
 import Loading from "../../components/Loading";
 import Container from "../../components/Container";
+import Print from "../../components/Print/Print";
 
 const Prints = () => {
   const [prints, setPrints] = useState([]);
@@ -56,7 +56,7 @@ const Prints = () => {
 
         <div className="prints-container">
           {prints.map((data) => (
-            <Print key={data._id} data={data}></Print>
+            <Print key={data._id} data={data} />
           ))}
         </div>
 

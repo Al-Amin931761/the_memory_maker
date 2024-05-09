@@ -3,19 +3,19 @@ import "./CustomerReview.css";
 import { StarPicker } from "react-star-picker";
 import { BiSolidEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
-import auth from "../../../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "react-bootstrap";
+import auth from "../../../../firebase.init";
 import ReusableModal from "../../../../components/ReusableModal";
 import Form from "../../../../components/reusableForm/Form";
 import Textarea from "../../../../components/reusableForm/Textarea";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { addAndUpdateReviewSchema } from "../../../../components/reusableForm/Validation";
 import FormSubmit from "../../../../components/reusableForm/FormSubmit";
-import { Button } from "react-bootstrap";
+import { addAndUpdateReviewSchema } from "../../../../components/reusableForm/Validation";
 
 const CustomerReview = ({ data }) => {
   const [user] = useAuthState(auth);
@@ -134,6 +134,7 @@ const CustomerReview = ({ data }) => {
 
       {/* update review modal */}
       <ReusableModal
+        size="lg"
         modalShow={showReviewUpdateModal}
         setModalShow={setShowReviewUpdateModal}
         modalTitle="Update Review"
